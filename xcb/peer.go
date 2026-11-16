@@ -25,11 +25,11 @@ import (
 
 	mapset "github.com/deckarep/golang-set"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/forkid"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/forkid"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 var (

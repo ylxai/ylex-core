@@ -24,13 +24,13 @@ import (
 
 	"github.com/VictoriaMetrics/fastcache"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
-	"github.com/core-coin/go-core/v2/xcbdb/leveldb"
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/leveldb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // reverse reverses the contents of a byte slice. It's used to update random accs

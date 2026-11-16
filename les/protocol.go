@@ -22,11 +22,11 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
-	lpc "github.com/core-coin/go-core/v2/les/lespay/client"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	lpc "github.com/ylxai/ylex-core/v2/les/lespay/client"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // Constants to match up protocol versions and messages

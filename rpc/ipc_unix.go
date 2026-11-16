@@ -26,7 +26,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // ipcListen will create a Unix socket on the given endpoint.

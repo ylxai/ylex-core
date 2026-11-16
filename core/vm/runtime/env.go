@@ -17,8 +17,8 @@
 package runtime
 
 import (
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/vm"
 )
 
 func NewEnv(cfg *Config) *vm.CVM {

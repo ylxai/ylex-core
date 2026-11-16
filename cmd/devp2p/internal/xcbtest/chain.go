@@ -26,11 +26,11 @@ import (
 	"os"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/forkid"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/forkid"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 type Chain struct {

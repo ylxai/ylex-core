@@ -21,15 +21,15 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/accounts/external"
-	"github.com/core-coin/go-core/v2/cmd/utils"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/contracts/checkpointoracle"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rpc"
-	"github.com/core-coin/go-core/v2/xcbclient"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/accounts/external"
+	"github.com/ylxai/ylex-core/v2/cmd/utils"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/contracts/checkpointoracle"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/xcbclient"
 )
 
 // newClient creates a client with specified remote URL.

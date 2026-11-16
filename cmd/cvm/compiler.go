@@ -23,7 +23,7 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/cmd/cvm/internal/compiler"
+	"github.com/ylxai/ylex-core/v2/cmd/cvm/internal/compiler"
 )
 
 var compileCommand = cli.Command{

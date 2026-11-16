@@ -22,13 +22,13 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/core/vm"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 // testerAccountPool is a pool to maintain currently active tester accounts,
@@ -363,7 +363,7 @@ func TestClique(t *testing.T) {
 			failure: errRecentlySigned,
 		}, {
 			// Recent signatures should not reset on checkpoint blocks imported in a new
-			// batch (https://github.com/core-coin/go-core/v2/issues/17593). Whilst this
+			// batch (https://github.com/ylxai/ylex-core/v2/issues/17593). Whilst this
 			// seems overly specific and weird, it was a Devin consensus split.
 			epoch:   3,
 			signers: []string{"A", "B", "C"},

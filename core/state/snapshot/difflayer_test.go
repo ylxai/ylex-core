@@ -23,10 +23,10 @@ import (
 
 	"github.com/VictoriaMetrics/fastcache"
 
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 func copyDestructs(destructs map[common.Hash]struct{}) map[common.Hash]struct{} {

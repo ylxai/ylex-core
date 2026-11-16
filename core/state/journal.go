@@ -19,7 +19,7 @@ package state
 import (
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // journalEntry is a modification entry in the state change journal that can be
@@ -164,7 +164,7 @@ func (ch suicideChange) dirtied() *common.Address {
 	return ch.account
 }
 
-var ripemd, _ = common.HexToAddress("cb700000000000000000000000000000000000000003")
+var ripemd, _ = common.HexToAddress("796c7884000000000000000000000000000000000003")
 
 func (ch touchChange) revert(s *StateDB) {
 }

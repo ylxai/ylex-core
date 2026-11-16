@@ -23,7 +23,7 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // typeWithoutStringer is a alias for the Type type which simply doesn't implement

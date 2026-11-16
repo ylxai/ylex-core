@@ -37,11 +37,11 @@ import (
 	"github.com/docker/docker/pkg/reexec"
 	"github.com/gorilla/websocket"
 
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 func init() {

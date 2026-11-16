@@ -28,12 +28,12 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/internal/testlog"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/enr"
-	"github.com/core-coin/go-core/v2/p2p/rlpx"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/internal/testlog"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/enr"
+	"github.com/ylxai/ylex-core/v2/p2p/rlpx"
 )
 
 type testTransport struct {

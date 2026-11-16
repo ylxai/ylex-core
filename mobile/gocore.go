@@ -24,18 +24,18 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/core-coin/go-core/v2/xcbstats"
+	"github.com/ylxai/ylex-core/v2/xcbstats"
 
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/internal/debug"
-	"github.com/core-coin/go-core/v2/les"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/nat"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/xcb"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
-	"github.com/core-coin/go-core/v2/xcbclient"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/internal/debug"
+	"github.com/ylxai/ylex-core/v2/les"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/nat"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/xcb"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/xcbclient"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Gocore

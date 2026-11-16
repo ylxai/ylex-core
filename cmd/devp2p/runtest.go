@@ -21,9 +21,9 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/cmd/devp2p/internal/v4test"
-	"github.com/core-coin/go-core/v2/internal/utesting"
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/cmd/devp2p/internal/v4test"
+	"github.com/ylxai/ylex-core/v2/internal/utesting"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 var (

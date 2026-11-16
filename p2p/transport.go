@@ -24,11 +24,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common/bitutil"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/metrics"
-	"github.com/core-coin/go-core/v2/p2p/rlpx"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common/bitutil"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/metrics"
+	"github.com/ylxai/ylex-core/v2/p2p/rlpx"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 const (

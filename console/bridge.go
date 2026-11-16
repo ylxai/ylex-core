@@ -26,10 +26,10 @@ import (
 
 	"github.com/dop251/goja"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/console/prompt"
-	"github.com/core-coin/go-core/v2/internal/jsre"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/console/prompt"
+	"github.com/ylxai/ylex-core/v2/internal/jsre"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // bridge is a collection of JavaScript utility methods to bride the .js runtime

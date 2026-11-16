@@ -22,12 +22,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
 )
 
 const (

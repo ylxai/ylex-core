@@ -20,9 +20,9 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/trie"
 )
 
 // NodeIterator is an iterator to traverse the entire state trie post-order,

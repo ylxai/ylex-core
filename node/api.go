@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/internal/debug"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/internal/debug"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // apis returns the collection of built-in RPC APIs.

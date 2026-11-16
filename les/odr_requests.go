@@ -21,16 +21,16 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/light"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/light"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/trie"
 )
 
 var (

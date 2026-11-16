@@ -29,17 +29,17 @@ import (
 
 	"github.com/prometheus/tsdb/fileutil"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/core/led"
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/core/led"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/event"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/event"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // Node is a container on which services can be registered.

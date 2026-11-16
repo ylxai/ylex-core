@@ -24,7 +24,7 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/core/asm"
+	"github.com/ylxai/ylex-core/v2/core/asm"
 )
 
 var disasmCommand = cli.Command{

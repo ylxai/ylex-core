@@ -30,14 +30,14 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/consensus/clique"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/consensus/clique"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 type SigFormat struct {

@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common/mclock"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	lps "github.com/core-coin/go-core/v2/les/lespay/server"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/enr"
-	"github.com/core-coin/go-core/v2/p2p/nodestate"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	lps "github.com/ylxai/ylex-core/v2/les/lespay/server"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/enr"
+	"github.com/ylxai/ylex-core/v2/p2p/nodestate"
 )
 
 func TestClientPoolL10C100Free(t *testing.T) {

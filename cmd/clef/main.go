@@ -39,25 +39,25 @@ import (
 	"github.com/mattn/go-isatty"
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/internal/xcbapi"
+	"github.com/ylxai/ylex-core/v2/internal/xcbapi"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/accounts/keystore"
-	"github.com/core-coin/go-core/v2/cmd/utils"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/internal/flags"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/rpc"
-	"github.com/core-coin/go-core/v2/signer/core"
-	"github.com/core-coin/go-core/v2/signer/fourbyte"
-	"github.com/core-coin/go-core/v2/signer/rules"
-	"github.com/core-coin/go-core/v2/signer/storage"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/accounts/keystore"
+	"github.com/ylxai/ylex-core/v2/cmd/utils"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/internal/flags"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/signer/core"
+	"github.com/ylxai/ylex-core/v2/signer/fourbyte"
+	"github.com/ylxai/ylex-core/v2/signer/rules"
+	"github.com/ylxai/ylex-core/v2/signer/storage"
 )
 
 const legalWarning = `
@@ -910,7 +910,7 @@ func testExternalUI(api *core.SignerAPI) {
 		if err != nil {
 			utils.Fatalf("Should not error: %v", err)
 		}
-		data := `{"types":{"CIP712Domain":[{"name":"name","type":"string"},{"name":"version","type":"string"},{"name":"networkid","type":"uint256"},{"name":"verifyingContract","type":"address"}],"Person":[{"name":"name","type":"string"},{"name":"test","type":"uint8"},{"name":"wallet","type":"address"}],"Mail":[{"name":"from","type":"Person"},{"name":"to","type":"Person"},{"name":"contents","type":"string"}]},"primaryType":"Mail","domain":{"name":"Core Mail","version":"1","networkid":"1","verifyingContract":"cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba"},"message":{"from":{"name":"Cow","test":"3","wallet":"cb76a631db606f1452ddc2432931d611f1d5b126f848"},"to":{"name":"Bob","wallet":"cb27de521e43741cf785cbad450d5649187b9612018f","test":"2"},"contents":"Hello, Bob!"}}`
+		data := `{"types":{"CIP712Domain":[{"name":"name","type":"string"},{"name":"version","type":"string"},{"name":"networkid","type":"uint256"},{"name":"verifyingContract","type":"address"}],"Person":[{"name":"name","type":"string"},{"name":"test","type":"uint8"},{"name":"wallet","type":"address"}],"Mail":[{"name":"from","type":"Person"},{"name":"to","type":"Person"},{"name":"contents","type":"string"}]},"primaryType":"Mail","domain":{"name":"Core Mail","version":"1","networkid":"1","verifyingContract":"796c78278daf54f2e568bb4237357b1cee1aa3cb7eba"},"message":{"from":{"name":"Cow","test":"3","wallet":"796c7828db606f1452ddc2432931d611f1d5b126f848"},"to":{"name":"Bob","wallet":"796c78241e43741cf785cbad450d5649187b9612018f","test":"2"},"contents":"Hello, Bob!"}}`
 		//_, err := api.SignData(ctx, accounts.MimetypeTypedData, *addr, hexutil.Encode([]byte(data)))
 		var typedData core.TypedData
 		json.Unmarshal([]byte(data), &typedData)

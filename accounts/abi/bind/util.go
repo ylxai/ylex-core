@@ -21,9 +21,9 @@ import (
 	"errors"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // WaitMined waits for tx to be mined on the blockchain.

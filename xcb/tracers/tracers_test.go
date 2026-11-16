@@ -26,17 +26,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/core/vm"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/tests"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/tests"
 )
 
 // To generate a new callTracer test, copy paste the makeTest method below into
@@ -120,7 +120,7 @@ type callTracerTest struct {
 }
 
 func TestPrestateTracerCreate2(t *testing.T) {
-	addr, _ := common.HexToAddress("cb8000000000000000000000000000000000deadbeef")
+	addr, _ := common.HexToAddress("796c78930000000000000000000000000000deadbeef")
 	unsignedTx := types.NewTransaction(1, addr,
 		new(big.Int), 5000000, big.NewInt(1), []byte{})
 

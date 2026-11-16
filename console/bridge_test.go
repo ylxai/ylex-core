@@ -21,7 +21,7 @@ import (
 
 	"github.com/dop251/goja"
 
-	"github.com/core-coin/go-core/v2/internal/jsre"
+	"github.com/ylxai/ylex-core/v2/internal/jsre"
 )
 
 // TestUndefinedAsParam ensures that personal functions can receive

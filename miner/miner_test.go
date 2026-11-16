@@ -21,18 +21,18 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/consensus/clique"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/core/vm"
-	"github.com/core-coin/go-core/v2/event"
-	"github.com/core-coin/go-core/v2/trie"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/consensus/clique"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/event"
+	"github.com/ylxai/ylex-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
 )
 
 type mockBackend struct {
@@ -81,7 +81,7 @@ func (bc *testBlockChain) SubscribeChainHeadEvent(ch chan<- core.ChainHeadEvent)
 
 func TestMiner(t *testing.T) {
 	miner, mux := createMiner(t)
-	addr, err := common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+	addr, err := common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 	if err != nil {
 		t.Error(err)
 	}
@@ -111,7 +111,7 @@ func TestMiner(t *testing.T) {
 // An initial FailedEvent should allow mining to stop on a subsequent
 // downloader StartEvent.
 func TestMinerDownloaderFirstFails(t *testing.T) {
-	addr, err := common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+	addr, err := common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 	if err != nil {
 		t.Error(err)
 	}
@@ -146,11 +146,11 @@ func TestMinerDownloaderFirstFails(t *testing.T) {
 }
 
 func TestMinerStartStopAfterDownloaderEvents(t *testing.T) {
-	addr, err := common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+	addr, err := common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 	if err != nil {
 		t.Error(err)
 	}
-	addr2, err := common.HexToAddress("cb76a631db606f1452ddc2432931d611f1d5b126f848")
+	addr2, err := common.HexToAddress("796c7828db606f1452ddc2432931d611f1d5b126f848")
 	if err != nil {
 		t.Error(err)
 	}
@@ -179,7 +179,7 @@ func TestMinerStartStopAfterDownloaderEvents(t *testing.T) {
 
 func TestStartWhileDownload(t *testing.T) {
 	miner, mux := createMiner(t)
-	addr, err := common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+	addr, err := common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 	if err != nil {
 		t.Error(err)
 	}
@@ -196,7 +196,7 @@ func TestStartWhileDownload(t *testing.T) {
 
 func TestStartStopMiner(t *testing.T) {
 	miner, _ := createMiner(t)
-	addr, err := common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+	addr, err := common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 	if err != nil {
 		t.Error(err)
 	}
@@ -209,7 +209,7 @@ func TestStartStopMiner(t *testing.T) {
 
 func TestCloseMiner(t *testing.T) {
 	miner, _ := createMiner(t)
-	addr, err := common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+	addr, err := common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 	if err != nil {
 		t.Error(err)
 	}
@@ -225,11 +225,11 @@ func TestCloseMiner(t *testing.T) {
 // possible at the moment
 func TestMinerSetCorebase(t *testing.T) {
 	miner, mux := createMiner(t)
-	addr, err := common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+	addr, err := common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 	if err != nil {
 		t.Error(err)
 	}
-	addr2, err := common.HexToAddress("cb27de521e43741cf785cbad450d5649187b9612018f")
+	addr2, err := common.HexToAddress("796c78241e43741cf785cbad450d5649187b9612018f")
 	if err != nil {
 		t.Error(err)
 	}
@@ -269,11 +269,11 @@ func waitForMiningState(t *testing.T, m *Miner, mining bool) {
 
 func createMiner(t *testing.T) (*Miner, *event.TypeMux) {
 	// Create Cryptore config
-	addr, err := common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+	addr, err := common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 	if err != nil {
 		t.Error(err)
 	}
-	addr2, err := common.HexToAddress("cb270000000000000000000000000000000000000001")
+	addr2, err := common.HexToAddress("796c7855000000000000000000000000000000000001")
 	if err != nil {
 		t.Error(err)
 	}

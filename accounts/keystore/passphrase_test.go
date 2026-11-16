@@ -20,7 +20,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 const (
@@ -35,7 +35,7 @@ func TestKeyEncryptDecrypt(t *testing.T) {
 		t.Fatal(err)
 	}
 	password := "foobar"
-	address, err := common.HexToAddress("cb45f23d9ab6aefb2c22dfff511e29703435a3b50f50")
+	address, err := common.HexToAddress("796c78279ab6aefb2c22dfff511e29703435a3b50f50")
 	if err != nil {
 		t.Error(err)
 	}

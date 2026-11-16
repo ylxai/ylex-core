@@ -26,20 +26,20 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/console/prompt"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/internal/jsre"
-	"github.com/core-coin/go-core/v2/miner"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/xcb"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/console/prompt"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/internal/jsre"
+	"github.com/ylxai/ylex-core/v2/miner"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/xcb"
 )
 
 const (
 	testInstance = "console-tester"
-	testAddress  = "cb348605cdbbdb6d264aa742e77020dcbc58fcdce182"
+	testAddress  = "796c7861cdbbdb6d264aa742e77020dcbc58fcdce182"
 )
 
 // hookedPrompter implements UserPrompter to simulate use input via channels.

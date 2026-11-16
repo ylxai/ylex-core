@@ -22,8 +22,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 // Tests that transactions can be added to strict lists and list contents and

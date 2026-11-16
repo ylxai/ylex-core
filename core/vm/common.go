@@ -19,8 +19,8 @@ package vm
 import (
 	"github.com/core-coin/uint256"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/math"
 )
 
 // calcMemSize64 calculates the required memory size, and returns

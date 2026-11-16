@@ -22,8 +22,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/math"
 )
 
 type JSONLogger struct {

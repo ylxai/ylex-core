@@ -43,9 +43,9 @@ import (
 	"golang.org/x/crypto/scrypt"
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 const (
@@ -122,7 +122,7 @@ func (ks keyStorePassphrase) StoreKey(filename string, key *Key, auth string) er
 				"This indicates that the keystore is corrupted. \n" +
 				"The corrupted file is stored at \n%v\n" +
 				"Please file a ticket at:\n\n" +
-				"https://github.com/core-coin/go-core/v2/issues." +
+				"https://github.com/ylxai/ylex-core/v2/issues." +
 				"The error was : %s"
 			//lint:ignore ST1005 This is a message for the user
 			return fmt.Errorf(msg, tmpName, err)

@@ -20,11 +20,11 @@ import (
 	"context"
 	"time"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/common/mclock"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/light"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/light"
 )
 
 // LesOdr implements light.OdrBackend

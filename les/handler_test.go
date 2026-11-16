@@ -23,20 +23,20 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/mclock"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/light"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/trie"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/light"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
 )
 
 func expectResponse(r p2p.MsgReader, msgcode, reqID, bv uint64, data interface{}) error {

@@ -28,7 +28,7 @@ import (
 	"github.com/jedisct1/go-minisign"
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 var gocorePubKeys []string = []string{

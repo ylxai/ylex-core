@@ -22,14 +22,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/internal/xcbapi"
+	"github.com/ylxai/ylex-core/v2/internal/xcbapi"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/signer/core"
-	"github.com/core-coin/go-core/v2/signer/storage"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/signer/core"
+	"github.com/ylxai/ylex-core/v2/signer/storage"
 )
 
 const JS = `
@@ -155,8 +155,8 @@ func TestSignTxRequest(t *testing.T) {
 		console.log("transaction.to", r.transaction.to);
 		console.log("transaction.value", r.transaction.value);
 		console.log("transaction.nonce", r.transaction.nonce);
-		if(r.transaction.from.toLowerCase()=="cb390000000000000000000000000000000000001337"){ return "Approve"}
-		if(r.transaction.from.toLowerCase()=="cb79000000000000000000000000000000000000dead"){ return "Reject"}
+		if(r.transaction.from.toLowerCase()=="796c7827000000000000000000000000000000001337"){ return "Approve"}
+		if(r.transaction.from.toLowerCase()=="796c786300000000000000000000000000000000dead"){ return "Reject"}
 	}`
 
 	r, err := initRuleEngine(js)
@@ -164,12 +164,12 @@ func TestSignTxRequest(t *testing.T) {
 		t.Errorf("Couldn't create evaluator %v", err)
 		return
 	}
-	to, err := common.HexToAddress("cb79000000000000000000000000000000000000dead")
+	to, err := common.HexToAddress("796c786300000000000000000000000000000000dead")
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	from, err := common.HexToAddress("cb390000000000000000000000000000000000001337")
+	from, err := common.HexToAddress("796c7827000000000000000000000000000000001337")
 
 	if err != nil {
 		t.Error(err)
@@ -422,11 +422,11 @@ const ExampleTxWindow = `
 `
 
 func dummyTx(value hexutil.Big) *core.SignTxRequest {
-	to, err := common.HexToAddress("cb79000000000000000000000000000000000000dead")
+	to, err := common.HexToAddress("796c786300000000000000000000000000000000dead")
 	if err != nil {
 		panic(err)
 	}
-	from, err := common.HexToAddress("cb79000000000000000000000000000000000000dead")
+	from, err := common.HexToAddress("796c786300000000000000000000000000000000dead")
 	if err != nil {
 		panic(err)
 	}
@@ -457,7 +457,7 @@ func dummyTxWithV(value uint64) *core.SignTxRequest {
 }
 
 func dummySigned(value *big.Int) *types.Transaction {
-	to, err := common.HexToAddress("cb79000000000000000000000000000000000000dead")
+	to, err := common.HexToAddress("796c786300000000000000000000000000000000dead")
 	if err != nil {
 		panic(err)
 	}
@@ -590,7 +590,7 @@ func TestSignData(t *testing.T) {
     return "Approve"
 }
 function ApproveSignData(r){
-    if( r.address.toLowerCase() == "cb27de521e43741cf785cbad450d5649187b9612018f")
+    if( r.address.toLowerCase() == "796c78241e43741cf785cbad450d5649187b9612018f")
     {
         if(r.messages[0].value.indexOf("bazonk") >= 0){
             return "Approve"
@@ -606,7 +606,7 @@ function ApproveSignData(r){
 	}
 	message := "baz bazonk foo"
 	hash, rawdata := accounts.TextAndHash([]byte(message))
-	addr, err := common.HexToAddress("cb27de521e43741cf785cbad450d5649187b9612018f")
+	addr, err := common.HexToAddress("796c78241e43741cf785cbad450d5649187b9612018f")
 	if err != nil {
 		t.Error(err)
 	}

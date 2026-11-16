@@ -25,7 +25,7 @@ import (
 	"net"
 	"sort"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 const (

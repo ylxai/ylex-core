@@ -21,8 +21,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/core-coin/go-core/v2/common/mclock"
-	"github.com/core-coin/go-core/v2/common/prque"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
+	"github.com/ylxai/ylex-core/v2/common/prque"
 )
 
 // servingQueue allows running tasks in a limited number of threads and puts the

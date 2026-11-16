@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 )
 
 func TestTableDatabase(t *testing.T)            { testTableDatabase(t, "prefix") }

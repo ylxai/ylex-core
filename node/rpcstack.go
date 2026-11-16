@@ -31,8 +31,8 @@ import (
 
 	"github.com/rs/cors"
 
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // httpConfig is the JSON-RPC/HTTP configuration.

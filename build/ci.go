@@ -51,7 +51,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/core-coin/go-core/v2/internal/build"
+	"github.com/ylxai/ylex-core/v2/internal/build"
 )
 
 var (

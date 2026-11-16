@@ -20,10 +20,10 @@ import (
 	"context"
 	"sync"
 
-	core "github.com/core-coin/go-core/v2"
+	core "github.com/ylxai/ylex-core/v2"
 
-	"github.com/core-coin/go-core/v2/event"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/event"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

@@ -20,10 +20,10 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 // makeTestTrie create a sample test trie to test node-wise reconstruction.

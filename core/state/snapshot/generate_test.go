@@ -21,11 +21,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/trie"
 )
 
 // Tests that snapshot generation errors out correctly in case of a missing trie

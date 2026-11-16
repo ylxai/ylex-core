@@ -24,10 +24,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
-var testAddrHex = "cb82a5fd22b9bee8b8ab877c86e0a2c21765e1d5bfc5"
+var testAddrHex = "796c784622b9bee8b8ab877c86e0a2c21765e1d5bfc5"
 var testPrivHex = "69bb68c3a00a0cd9cbf2cab316476228c758329bbfe0b1759e8634694a9497afea05bcbf24e2aa0627eac4240484bb71de646a9296872a3c0e"
 
 // These tests are sanity checks.
@@ -129,15 +129,15 @@ func TestNewContractAddress(t *testing.T) {
 	caddr1 := CreateAddress(addr, 1)
 	caddr2 := CreateAddress(addr, 2)
 
-	addr0, err := common.HexToAddress("cb57718e2b338b99d2587a6dd6c01fc2b97a4296449f")
+	addr0, err := common.HexToAddress("796c7818e451b87a454630f7869c2cee488e4e933fe4")
 	if err != nil {
 		t.Error(err)
 	}
-	addr1, err := common.HexToAddress("cb812bae2e00797890802e8aa6c162aac5cac4d8990c")
+	addr1, err := common.HexToAddress("796c784495fe1666cd9cb63553ea298a8ce240d6ec33")
 	if err != nil {
 		t.Error(err)
 	}
-	addr2, err := common.HexToAddress("cb98c562c98ac1be66b1302be0cac7f8da9694900b09")
+	addr2, err := common.HexToAddress("796c7849ea598f2300de2e694f03ca371de258ec4205")
 	if err != nil {
 		t.Error(err)
 	}

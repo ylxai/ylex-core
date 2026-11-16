@@ -40,7 +40,7 @@ import (
 	"io"
 	"sort"
 
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 const SizeLimit = 600 // maximum encoded size of a node record in bytes

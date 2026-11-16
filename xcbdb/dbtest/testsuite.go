@@ -22,7 +22,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 )
 
 // TestDatabaseSuite runs a suite of tests against a KeyValueStore database

@@ -25,8 +25,8 @@ import (
 
 	fuzz "github.com/google/gofuzz"
 
-	"github.com/core-coin/go-core/v2/accounts/abi"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/accounts/abi"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 func unpackPack(abi abi.ABI, method string, inputType []interface{}, input []byte) bool {

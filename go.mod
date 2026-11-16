@@ -1,4 +1,4 @@
-module github.com/core-coin/go-core/v2
+module github.com/ylxai/ylex-core/v2
 
 go 1.21
 
@@ -55,6 +55,7 @@ require (
 require (
 	github.com/tklauser/go-sysconf v0.3.14 // indirect
 	github.com/tklauser/numcpus v0.8.0 // indirect
+	github.com/ylxai/ylex-pode-go v0.0.23 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 )
 
@@ -82,3 +83,14 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 	gotest.tools v2.2.0+incompatible // indirect
 )
+
+// YLEX: use our own forks (renamed module paths) instead of upstream core-coin
+replace github.com/core-coin/ed448 => github.com/ylxai/ylex-ed448 v1.0.0-ylx
+
+replace github.com/core-coin/go-goldilocks => github.com/ylxai/ylex-goldilocks-cpp v1.0.0-ylx
+
+replace github.com/core-coin/go-randomy => github.com/ylxai/ylex-pode-go v1.0.0-ylx
+
+// tyler-smith/go-bip39 upstream repo was deleted from GitHub; pin to the last
+// proxy-hosted copy (same module path) so the build resolves.
+replace github.com/tyler-smith/go-bip39 => github.com/tyler-smith/go-bip39 v1.0.1-0.20181017060643-dbb3b84ba2ef

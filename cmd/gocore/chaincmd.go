@@ -28,18 +28,18 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/cmd/utils"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/console/prompt"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/event"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/metrics"
-	"github.com/core-coin/go-core/v2/trie"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/cmd/utils"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/console/prompt"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/event"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/metrics"
+	"github.com/ylxai/ylex-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
 )
 
 var (

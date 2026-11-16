@@ -21,7 +21,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // This example configures a HTTP-based RPC client with two options - one setting the

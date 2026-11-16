@@ -6,12 +6,12 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/internal/xcbapi"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/internal/xcbapi"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // MockBackend for testing
@@ -109,7 +109,7 @@ func TestGetKVWithMockContract(t *testing.T) {
 	t.Logf("Testing GetKV with mock CIP-150 contract:")
 
 	// Mock contract address
-	contractAddr, err := common.HexToAddress("cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c")
+	contractAddr, err := common.HexToAddress("796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c")
 	if err != nil {
 		t.Fatalf("Failed to parse contract address: %v", err)
 	}
@@ -234,7 +234,7 @@ func TestGetKVWithMockContract(t *testing.T) {
 func TestGetKVSealedOnly(t *testing.T) {
 	t.Logf("Testing GetKV with sealed=true (only sealed items):")
 
-	contractAddr, err := common.HexToAddress("cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c")
+	contractAddr, err := common.HexToAddress("796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c")
 	if err != nil {
 		t.Fatalf("Failed to parse contract address: %v", err)
 	}
@@ -328,7 +328,7 @@ func TestGetKVWithUserExample(t *testing.T) {
 	t.Logf("Testing GetKV with user's example scenario:")
 
 	// Example from CIP-150: RWA token with prospectus metadata
-	contractAddr, err := common.HexToAddress("cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c")
+	contractAddr, err := common.HexToAddress("796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c")
 	if err != nil {
 		t.Fatalf("Failed to parse contract address: %v", err)
 	}

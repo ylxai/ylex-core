@@ -24,13 +24,13 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/trie"
 )
 
 // stateReq represents a batch of state fetch requests grouped together into

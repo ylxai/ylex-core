@@ -30,9 +30,9 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/core-coin/go-core/v2/internal/testlog"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/internal/testlog"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // TestCorsHandler makes sure CORS are properly handled on the http server.

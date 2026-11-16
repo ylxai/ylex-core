@@ -28,8 +28,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 var jsonEventTransfer = []byte(`{
@@ -75,7 +75,7 @@ var jsonEventMixedCase = []byte(`{
 // 1000000
 var transferData1 = "00000000000000000000000000000000000000000000000000000000000f4240"
 
-// "cb6000ce0d46d924cc8437c806721496599fc3ffa268", 2218516807680, "usd"
+// "796c78580d46d924cc8437c806721496599fc3ffa268", 2218516807680, "usd"
 var pledgeData1 = "00000000000000000000cb6000ce0d46d924cc8437c806721496599fc3ffa2680000000000000000000000000000000000000000000000000000020489e800007573640000000000000000000000000000000000000000000000000000000000"
 
 // 1000000,2218516807680,1000001
@@ -210,7 +210,7 @@ func TestEventTupleUnpack(t *testing.T) {
 	bigintExpected := big.NewInt(1000000)
 	bigintExpected2 := big.NewInt(2218516807680)
 	bigintExpected3 := big.NewInt(1000001)
-	addr, err := common.HexToAddress("cb6000ce0d46d924cc8437c806721496599fc3ffa268")
+	addr, err := common.HexToAddress("796c78580d46d924cc8437c806721496599fc3ffa268")
 	if err != nil {
 		t.Error(err)
 	}

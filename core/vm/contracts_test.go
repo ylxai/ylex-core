@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // precompiledTest defines the input/output pairs for precompiled contract tests.

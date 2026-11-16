@@ -17,7 +17,7 @@
 package vm
 
 import (
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 type (

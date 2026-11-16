@@ -22,11 +22,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/light"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/light"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 // Test light syncing which will download all headers from genesis.
@@ -186,7 +186,7 @@ func testMissOracleBackend(t *testing.T, hasCheckpoint bool) {
 	// that user wants to unlock something which blocks the oracle backend
 	// initialisation. But at the same time syncing starts.
 	//
-	// See https://github.com/core-coin/go-core/v2/issues/20097 for more detail.
+	// See https://github.com/ylxai/ylex-core/v2/issues/20097 for more detail.
 	//
 	// In this case, client should run light sync or legacy checkpoint sync
 	// if hardcoded checkpoint is configured.

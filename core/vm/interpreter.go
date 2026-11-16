@@ -20,8 +20,8 @@ import (
 	"hash"
 	"sync/atomic"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/math"
 )
 
 // Config are the configuration options for the Interpreter

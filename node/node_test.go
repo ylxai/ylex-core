@@ -29,11 +29,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/rpc"
 
 	"github.com/stretchr/testify/assert"
 )

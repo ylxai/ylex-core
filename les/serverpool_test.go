@@ -22,14 +22,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common/mclock"
-	lpc "github.com/core-coin/go-core/v2/les/lespay/client"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/enr"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
+	lpc "github.com/ylxai/ylex-core/v2/les/lespay/client"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/enr"
 )
 
 const (

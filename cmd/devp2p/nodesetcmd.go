@@ -23,10 +23,10 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/core/forkid"
-	"github.com/core-coin/go-core/v2/p2p/enr"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/core/forkid"
+	"github.com/ylxai/ylex-core/v2/p2p/enr"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 var (

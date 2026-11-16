@@ -19,7 +19,7 @@ package abi
 import (
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 type packUnpackTest struct {

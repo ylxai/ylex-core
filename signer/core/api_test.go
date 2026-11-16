@@ -27,17 +27,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/internal/xcbapi"
+	"github.com/ylxai/ylex-core/v2/internal/xcbapi"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/accounts/keystore"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/signer/core"
-	"github.com/core-coin/go-core/v2/signer/fourbyte"
-	"github.com/core-coin/go-core/v2/signer/storage"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/accounts/keystore"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/signer/core"
+	"github.com/ylxai/ylex-core/v2/signer/fourbyte"
+	"github.com/ylxai/ylex-core/v2/signer/storage"
 )
 
 // Used for testing
@@ -225,7 +225,7 @@ func TestNewAcc(t *testing.T) {
 }
 
 func mkTestTx(from common.Address) core.SendTxArgs {
-	to, err := common.HexToAddress("cb390000000000000000000000000000000000001337")
+	to, err := common.HexToAddress("796c7827000000000000000000000000000000001337")
 	if err != nil {
 		panic(err)
 	}

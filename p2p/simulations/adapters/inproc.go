@@ -26,13 +26,13 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/core-coin/go-core/v2/event"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/simulations/pipes"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/event"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/simulations/pipes"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // SimAdapter is a NodeAdapter which creates in-memory simulation nodes and

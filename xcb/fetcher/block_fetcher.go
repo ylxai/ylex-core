@@ -22,13 +22,13 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/prque"
-	"github.com/core-coin/go-core/v2/consensus"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/metrics"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/prque"
+	"github.com/ylxai/ylex-core/v2/consensus"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/metrics"
+	"github.com/ylxai/ylex-core/v2/trie"
 )
 
 const (

@@ -21,8 +21,8 @@ package gocore
 import (
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/xcbclient"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/xcbclient"
 )
 
 // CoreClient provides access to the Core APIs.

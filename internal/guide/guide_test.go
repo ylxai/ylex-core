@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/accounts/keystore"
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/accounts/keystore"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 // Tests that the account management snippets work correctly.

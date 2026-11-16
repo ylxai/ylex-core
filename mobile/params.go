@@ -21,9 +21,9 @@ package gocore
 import (
 	"encoding/json"
 
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/p2p/discv5"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/p2p/discv5"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 // MainnetGenesis returns the JSON spec to use for the main Core network. It

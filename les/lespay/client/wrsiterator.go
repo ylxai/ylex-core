@@ -19,9 +19,9 @@ package client
 import (
 	"sync"
 
-	"github.com/core-coin/go-core/v2/les/utils"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/nodestate"
+	"github.com/ylxai/ylex-core/v2/les/utils"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/nodestate"
 )
 
 // WrsIterator returns nodes from the specified selectable set with a weighted random

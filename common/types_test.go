@@ -104,9 +104,9 @@ func TestAddressUnmarshalJSON(t *testing.T) {
 		{`"cd41e8cf4629acb360350399b6cff367a97cf36e62b9"`, true, nil}, // wrong prefix (network id = 1)
 		{`"41e8cf4629acb360350399b6cff367a97cf36e62b9"`, true, nil},   // without prefix
 		{`"e8cf4629acb360350399b6cff367a97cf36e62b9"`, true, nil},     // without prefix and checksum
-		{`"cb35348d6db8bfe52ab1199deeacbc4c1ffa0686d149"`, false, secondValue},
+		{`"796c78426db8bfe52ab1199deeacbc4c1ffa0686d149"`, false, secondValue},
 		{`"0xcb35348d6db8bfe52ab1199deeacbc4c1ffa0686d149"`, false, secondValue},
-		{`"cb72e8cf4629acb360350399b6cff367a97cf36e62b9"`, false, firstValue},
+		{`"796c78704629acb360350399b6cff367a97cf36e62b9"`, false, firstValue},
 	}
 	for i, test := range tests {
 		var v Address
@@ -127,7 +127,7 @@ func TestAddressUnmarshalJSON(t *testing.T) {
 }
 
 func BenchmarkAddressHex(b *testing.B) {
-	testAddr, err := HexToAddress("cb885aaeb6053f3e94c9b9a09f33669435e7ef1beaed")
+	testAddr, err := HexToAddress("796c7875b6053f3e94c9b9a09f33669435e7ef1beaed")
 	if err != nil {
 		b.Error(err)
 	}
@@ -337,7 +337,7 @@ func TestAddress_Format(t *testing.T) {
 		{
 			name: "print",
 			out:  fmt.Sprint(addr),
-			want: "cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15",
+			want: "796c78572b342aab24bcf63ea218c6a9274d30ab9a15",
 		},
 		{
 			name: "printf-s",
@@ -346,32 +346,32 @@ func TestAddress_Format(t *testing.T) {
 				fmt.Fprintf(buf, "%s", addr)
 				return buf.String()
 			}(),
-			want: "cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15",
+			want: "796c78572b342aab24bcf63ea218c6a9274d30ab9a15",
 		},
 		{
 			name: "printf-q",
 			out:  fmt.Sprintf("%q", addr),
-			want: `"cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15"`,
+			want: `"796c78572b342aab24bcf63ea218c6a9274d30ab9a15"`,
 		},
 		{
 			name: "printf-x",
 			out:  fmt.Sprintf("%x", addr),
-			want: "cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15",
+			want: "796c78572b342aab24bcf63ea218c6a9274d30ab9a15",
 		},
 		{
 			name: "printf-X",
 			out:  fmt.Sprintf("%X", addr),
-			want: "cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15",
+			want: "796c78572b342aab24bcf63ea218c6a9274d30ab9a15",
 		},
 		{
 			name: "printf-#x",
 			out:  fmt.Sprintf("%#x", addr),
-			want: "cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15",
+			want: "796c78572b342aab24bcf63ea218c6a9274d30ab9a15",
 		},
 		{
 			name: "printf-v",
 			out:  fmt.Sprintf("%v", addr),
-			want: "cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15",
+			want: "796c78572b342aab24bcf63ea218c6a9274d30ab9a15",
 		},
 		// The original default formatter for byte slice
 		{

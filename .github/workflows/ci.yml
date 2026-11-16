@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.binary }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        binary: [ylexd, pode, evm, bootnode, abigen]
+        include:
+          - binary: ylexd
+            target: ./cmd/gocore
+          - binary: pode
+            target: ./cmd/pode
+          - binary: evm
+            target: ./cmd/evm
+          - binary: bootnode
+            target: ./cmd/bootnode
+          - binary: abigen
+            target: ./cmd/abigen
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache: true
+
+      - name: Build
+        run: go build -v -o ./build/${{ matrix.binary }} ${{ matrix.target }}
+
+  consensus-tests:
+    name: Consensus and crypto tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache: true
+
+      - name: Test monetary policy and addresses
+        run: go test -count=1 -timeout 30m ./consensus/cryptore/ ./common/... ./crypto/...
+
+  genesis-check:
+    name: Genesis is a clean launch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache: true
+
+      - name: Dump genesis and assert no premine
+        run: |
+          go build -o ./build/ylexd ./cmd/gocore
+          ./build/ylexd dumpgenesis > /tmp/genesis.json
+          python3 - <<'EOF'
+          import json
+          g = json.load(open('/tmp/genesis.json'))
+          assert g['config']['networkId'] == 828, f"mainnet chain id is {g['config']['networkId']}, want 828"
+          assert g['alloc'] == {}, f"genesis allocation is not empty: premine found"
+          assert g['coinbase'].startswith('796c78'), f"genesis coinbase lacks the ylx prefix: {g['coinbase']}"
+          print("genesis OK: chain id 828, no premine, ylx-prefixed coinbase")
+          EOF

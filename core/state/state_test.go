@@ -21,11 +21,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 var toAddr = common.BytesToAddress
@@ -43,9 +43,9 @@ func newStateTest() *stateTest {
 
 func TestDump(t *testing.T) {
 	s := newStateTest()
-	addr1, _ := common.HexToAddress("cb160000000000000000000000000000000000000102")
-	addr2, _ := common.HexToAddress("cb970000000000000000000000000000000000000002")
-	addr3, _ := common.HexToAddress("cb270000000000000000000000000000000000000001")
+	addr1, _ := common.HexToAddress("796c7816000000000000000000000000000000000102")
+	addr2, _ := common.HexToAddress("796c7821000000000000000000000000000000000002")
+	addr3, _ := common.HexToAddress("796c7855000000000000000000000000000000000001")
 	// generate a few entries
 	obj1 := s.state.GetOrNewStateObject(addr1)
 	obj1.AddBalance(big.NewInt(22))
@@ -64,19 +64,19 @@ func TestDump(t *testing.T) {
 	want := `{
     "root": "4a6ee6ee61e1ba178e184b74f0b7ea7d16869ef48e17f81a961cf5f58a867b4a",
     "accounts": {
-        "cb160000000000000000000000000000000000000102": {
+        "796c7816000000000000000000000000000000000102": {
             "balance": "22",
             "nonce": 0,
             "root": "56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
             "codeHash": "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a"
         },
-        "cb270000000000000000000000000000000000000001": {
+        "796c7855000000000000000000000000000000000001": {
             "balance": "44",
             "nonce": 0,
             "root": "56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
             "codeHash": "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a"
         },
-        "cb970000000000000000000000000000000000000002": {
+        "796c7821000000000000000000000000000000000002": {
             "balance": "0",
             "nonce": 0,
             "root": "56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
@@ -92,7 +92,7 @@ func TestDump(t *testing.T) {
 
 func TestNull(t *testing.T) {
 	s := newStateTest()
-	address, err := common.HexToAddress("cb9300000000823140710bf13990e4500136726d8b55")
+	address, err := common.HexToAddress("796c78950000823140710bf13990e4500136726d8b55")
 	if err != nil {
 		t.Fatal(err)
 	}

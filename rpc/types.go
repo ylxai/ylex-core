@@ -23,8 +23,8 @@ import (
 	"math"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
 )
 
 // API describes the set of methods offered over the RPC interface

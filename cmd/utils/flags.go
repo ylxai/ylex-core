@@ -33,44 +33,44 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/p2p/discover"
-	"github.com/core-coin/go-core/v2/xcb/energyprice"
+	"github.com/ylxai/ylex-core/v2/p2p/discover"
+	"github.com/ylxai/ylex-core/v2/xcb/energyprice"
 
-	"github.com/core-coin/go-core/v2/xcbstats"
+	"github.com/ylxai/ylex-core/v2/xcbstats"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/internal/xcbapi"
+	"github.com/ylxai/ylex-core/v2/internal/xcbapi"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/accounts/keystore"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/fdlimit"
-	"github.com/core-coin/go-core/v2/consensus"
-	"github.com/core-coin/go-core/v2/consensus/clique"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/vm"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/graphql"
-	"github.com/core-coin/go-core/v2/internal/flags"
-	"github.com/core-coin/go-core/v2/les"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/metrics"
-	"github.com/core-coin/go-core/v2/metrics/exp"
-	"github.com/core-coin/go-core/v2/metrics/influxdb"
-	"github.com/core-coin/go-core/v2/miner"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/discv5"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/nat"
-	"github.com/core-coin/go-core/v2/p2p/netutil"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/xcb"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/accounts/keystore"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/fdlimit"
+	"github.com/ylxai/ylex-core/v2/consensus"
+	"github.com/ylxai/ylex-core/v2/consensus/clique"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/graphql"
+	"github.com/ylxai/ylex-core/v2/internal/flags"
+	"github.com/ylxai/ylex-core/v2/les"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/metrics"
+	"github.com/ylxai/ylex-core/v2/metrics/exp"
+	"github.com/ylxai/ylex-core/v2/metrics/influxdb"
+	"github.com/ylxai/ylex-core/v2/miner"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/discv5"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/nat"
+	"github.com/ylxai/ylex-core/v2/p2p/netutil"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/xcb"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
 )
 
 func init() {
@@ -1165,9 +1165,14 @@ func SetDefaultNetworkID(ctx *cli.Context) {
 	case ctx.GlobalIsSet(NetworkIdFlag.Name):
 		common.DefaultNetworkID = common.NetworkID(ctx.GlobalUint64(NetworkIdFlag.Name))
 	case ctx.GlobalIsSet(DevinFlag.Name):
-		common.DefaultNetworkID = 3
+		// YLEX testnet. It keeps the "ylx" address prefix so the same
+		// wallet works on both YLEX networks; the chain id differs.
+		common.DefaultNetworkID = common.Ylex
 	case ctx.GlobalIsSet(DeveloperFlag.Name):
 		common.DefaultNetworkID = 1337
+	default:
+		// YLEX mainnet. The address prefix is "ylx".
+		common.DefaultNetworkID = common.Ylex
 	}
 }
 
@@ -1520,7 +1525,9 @@ func SetXcbConfig(ctx *cli.Context, stack *node.Node, cfg *xcb.Config) {
 		cfg.Genesis = core.DefaultGenesisBlock()
 		SetDNSDiscoveryDefaults(cfg, params.MainnetGenesisHash)
 	}
-	common.DefaultNetworkID = common.NetworkID(cfg.NetworkId)
+	// Address derivation always uses the "ylx" prefix, whatever network id
+	// the node runs. See common.NetworkID.Bytes.
+	common.DefaultNetworkID = common.Ylex
 }
 
 // SetDNSDiscoveryDefaults configures DNS discovery with the given URL if

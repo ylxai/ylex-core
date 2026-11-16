@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
 )
 
 type MyType [5]byte

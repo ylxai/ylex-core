@@ -27,13 +27,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/accounts/abi/bind/backends"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/contracts/checkpointoracle/contract"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind/backends"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/contracts/checkpointoracle/contract"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 var (

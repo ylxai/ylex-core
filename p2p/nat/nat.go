@@ -27,7 +27,7 @@ import (
 
 	natpmp "github.com/jackpal/go-nat-pmp"
 
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // An implementation of nat.Interface can map local ports to ports

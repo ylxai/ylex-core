@@ -20,8 +20,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 // senderFromServer is a types.Signer that remembers the sender address returned by the RPC

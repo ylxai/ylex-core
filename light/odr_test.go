@@ -24,21 +24,21 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/core/vm"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/trie"
 )
 
 var (
@@ -139,7 +139,7 @@ func odrGetReceipts(ctx context.Context, db xcbdb.Database, bc *core.BlockChain,
 func TestOdrAccountsLes2(t *testing.T) { testChainOdr(t, 1, odrAccounts) }
 
 func odrAccounts(ctx context.Context, db xcbdb.Database, bc *core.BlockChain, lc *LightChain, bhash common.Hash) ([]byte, error) {
-	dummyAddr, err := common.HexToAddress("cb721234567812345678123456781234567812345678")
+	dummyAddr, err := common.HexToAddress("796c7877567812345678123456781234567812345678")
 	if err != nil {
 		panic(err)
 	}

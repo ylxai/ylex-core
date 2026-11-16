@@ -25,16 +25,16 @@ import (
 	"testing"
 	"time"
 
-	c "github.com/core-coin/go-core/v2"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/xcb"
+	c "github.com/ylxai/ylex-core/v2"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/xcb"
 )
 
 // Verify that Client implements the core interfaces.
@@ -54,7 +54,7 @@ var (
 
 func TestToFilterArg(t *testing.T) {
 	blockHashErr := fmt.Errorf("cannot specify both BlockHash and FromBlock/ToBlock")
-	addr, err := common.HexToAddress("cb44d36722adec3edcb29c8e7b5a47f352d701393462")
+	addr, err := common.HexToAddress("796c787822adec3edcb29c8e7b5a47f352d701393462")
 	if err != nil {
 		t.Error(err)
 	}

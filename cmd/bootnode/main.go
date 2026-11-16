@@ -24,14 +24,14 @@ import (
 	"net"
 	"os"
 
-	"github.com/core-coin/go-core/v2/cmd/utils"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/p2p/discover"
-	"github.com/core-coin/go-core/v2/p2p/discv5"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/nat"
-	"github.com/core-coin/go-core/v2/p2p/netutil"
+	"github.com/ylxai/ylex-core/v2/cmd/utils"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/p2p/discover"
+	"github.com/ylxai/ylex-core/v2/p2p/discv5"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/nat"
+	"github.com/ylxai/ylex-core/v2/p2p/netutil"
 )
 
 func main() {

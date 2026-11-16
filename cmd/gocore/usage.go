@@ -24,9 +24,9 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/cmd/utils"
-	"github.com/core-coin/go-core/v2/internal/debug"
-	"github.com/core-coin/go-core/v2/internal/flags"
+	"github.com/ylxai/ylex-core/v2/cmd/utils"
+	"github.com/ylxai/ylex-core/v2/internal/debug"
+	"github.com/ylxai/ylex-core/v2/internal/flags"
 )
 
 // AppHelpFlagGroups is the application flags, grouped by functionality.

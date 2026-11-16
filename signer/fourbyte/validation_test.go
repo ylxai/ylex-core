@@ -20,9 +20,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/signer/core"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/signer/core"
 )
 
 func toHexBig(h string) hexutil.Big {
@@ -83,28 +83,28 @@ func TestTransactionValidation(t *testing.T) {
 	testcases := []txtestcase{
 		// Invalid to checksum
 		// valid 0x000000000000000000000000000000000000dEaD
-		{from: "cb3300000000000000000000000000000000deadbeef", to: "cb3300000000000000000000000000000000deadbeef",
+		{from: "796c78930000000000000000000000000000deadbeef", to: "796c78930000000000000000000000000000deadbeef",
 			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", numMessages: 0},
 		// conflicting input and data
-		{from: "cb3300000000000000000000000000000000deadbeef", to: "cb3300000000000000000000000000000000deadbeef",
+		{from: "796c78930000000000000000000000000000deadbeef", to: "796c78930000000000000000000000000000deadbeef",
 			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", d: "0x01", i: "0x02", expectErr: true},
 		// Data can't be parsed
-		{from: "cb3300000000000000000000000000000000deadbeef", to: "cb3300000000000000000000000000000000deadbeef",
+		{from: "796c78930000000000000000000000000000deadbeef", to: "796c78930000000000000000000000000000deadbeef",
 			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", d: "0x0102", numMessages: 1},
 		// Data (on Input) can't be parsed
-		{from: "cb3300000000000000000000000000000000deadbeef", to: "cb3300000000000000000000000000000000deadbeef",
+		{from: "796c78930000000000000000000000000000deadbeef", to: "796c78930000000000000000000000000000deadbeef",
 			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", i: "0x0102", numMessages: 1},
 		// Send to 0
-		{from: "cb3300000000000000000000000000000000deadbeef", to: "cb270000000000000000000000000000000000000001",
+		{from: "796c78930000000000000000000000000000deadbeef", to: "796c7855000000000000000000000000000000000001",
 			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", numMessages: 0},
 		// Create empty contract (no value)
-		{from: "cb3300000000000000000000000000000000deadbeef", to: "",
+		{from: "796c78930000000000000000000000000000deadbeef", to: "",
 			n: "0x01", g: "0x20", gp: "0x40", value: "0x00", numMessages: 1},
 		// Create empty contract (with value)
-		{from: "cb3300000000000000000000000000000000deadbeef", to: "",
+		{from: "796c78930000000000000000000000000000deadbeef", to: "",
 			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", expectErr: true},
 		// Small payload for create
-		{from: "cb3300000000000000000000000000000000deadbeef", to: "",
+		{from: "796c78930000000000000000000000000000deadbeef", to: "",
 			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", d: "0x01", numMessages: 1},
 	}
 	for i, test := range testcases {

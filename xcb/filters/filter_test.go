@@ -23,14 +23,14 @@ import (
 	"os"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 func makeReceipt(addr common.Address) *types.Receipt {
@@ -149,7 +149,7 @@ func TestFilters(t *testing.T) {
 				},
 			}
 			gen.AddUncheckedReceipt(receipt)
-			addr, err := common.HexToAddress("cb740000000000000000000000000000000000000998")
+			addr, err := common.HexToAddress("796c7810000000000000000000000000000000000998")
 			if err != nil {
 				t.Error(err)
 			}
@@ -163,7 +163,7 @@ func TestFilters(t *testing.T) {
 				},
 			}
 			gen.AddUncheckedReceipt(receipt)
-			addr, err := common.HexToAddress("cb470000000000000000000000000000000000000999")
+			addr, err := common.HexToAddress("796c7873000000000000000000000000000000000999")
 			if err != nil {
 				t.Error(err)
 			}

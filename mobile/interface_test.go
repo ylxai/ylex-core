@@ -22,15 +22,15 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 func TestInterfaceGetSet(t *testing.T) {
-	addr, err := common.HexToAddress("cb4812345678123456781234567812345678deadbeef")
+	addr, err := common.HexToAddress("796c78115678123456781234567812345678deadbeef")
 	if err != nil {
 		t.Error(err)
 	}
-	addr2, err := common.HexToAddress("cb9512345678123456781234567812345678cafebabe")
+	addr2, err := common.HexToAddress("796c78635678123456781234567812345678cafebabe")
 	if err != nil {
 		t.Error(err)
 	}

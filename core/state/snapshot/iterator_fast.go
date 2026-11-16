@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // weightedIterator is a iterator with an assigned weight. It is used to prioritise

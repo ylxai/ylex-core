@@ -33,8 +33,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }

@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/core-coin/go-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/node"
 )
 
 // SampleLifecycle is a trivial network service that can be attached to a node for

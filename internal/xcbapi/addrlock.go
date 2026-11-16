@@ -19,7 +19,7 @@ package xcbapi
 import (
 	"sync"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 type AddrLocker struct {

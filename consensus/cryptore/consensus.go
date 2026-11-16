@@ -25,13 +25,13 @@ import (
 
 	"github.com/core-coin/go-randomy"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/consensus"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/consensus"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/trie"
 
 	mapset "github.com/deckarep/golang-set"
 	"golang.org/x/crypto/sha3"
@@ -41,7 +41,7 @@ import (
 var (
 	BlockReward            = big.NewInt(5e+18) // Block reward in ore for successfully mining a block
 	maxUncles              = 2                 // Maximum number of uncles allowed in a single block
-	allowedFutureBlockTime = 8 * time.Second   // Max time from current time allowed for blocks, before they're considered future blocks
+	allowedFutureBlockTime = 3 * time.Second   // Max time from current time allowed for blocks, before they're considered future blocks
 
 	calcDifficulty = makeDifficultyCalculator()
 )
@@ -298,6 +298,7 @@ var (
 	big1          = big.NewInt(1)
 	big2          = big.NewInt(2)
 	big5          = big.NewInt(5)
+	big7          = big.NewInt(7)
 	bigMinus99    = big.NewInt(-99)
 )
 
@@ -307,11 +308,13 @@ func makeDifficultyCalculator() func(time uint64, parent *types.Header) *big.Int
 	// Note, the calculations below looks at the parent number, which is 1 below
 	// the block number. Thus we remove one from the delay given
 	return func(time uint64, parent *types.Header) *big.Int {
-		// https://github.com/core/CIPs/issues/100.
+		// https://github.com/core/CIPs/issues/100, retargeted for a 10 second
+		// target block time: the difficulty holds flat while the gap between
+		// the parent timestamp and this timestamp is 7 to 13 seconds.
 		// algorithm:
 		// diff = (parent_diff +
-		//         (parent_diff / 2048 * max((2 if len(parent.uncles) else 1) - ((timestamp - parent.timestamp) // 9), -99))
-		//        ) + 2^(periodCount - 2)
+		//         (parent_diff / 512 * max((2 if len(parent.uncles) else 1) - ((timestamp - parent.timestamp) // 7), -99))
+		//        )
 
 		bigTime := new(big.Int).SetUint64(time)
 		bigParentTime := new(big.Int).SetUint64(parent.Time)
@@ -320,9 +323,9 @@ func makeDifficultyCalculator() func(time uint64, parent *types.Header) *big.Int
 		x := new(big.Int)
 		y := new(big.Int)
 
-		// (2 if len(parent_uncles) else 1) - (block_timestamp - parent_timestamp) // 9
+		// (2 if len(parent_uncles) else 1) - (block_timestamp - parent_timestamp) // 7
 		x.Sub(bigTime, bigParentTime)
-		x.Div(x, big5)
+		x.Div(x, big7)
 		if parent.UncleHash == types.EmptyUncleHash {
 			x.Sub(big1, x)
 		} else {
@@ -446,11 +449,18 @@ var (
 )
 
 // AccumulateRewards credits the coinbase of the given block with the mining
-// reward. The total reward consists of the static block reward and rewards for
-// included uncles. The coinbase of each uncle block is also rewarded.
+// reward, and credits the treasury and liquidity shares to their addresses.
+//
+// The total reward consists of the block reward at this height (which follows
+// the bootstrap ramp) and rewards for included uncles. The coinbase of each
+// uncle block is also rewarded.
+//
+// The YLEX split is applied to the whole reward: the miner takes the majority,
+// the treasury and the liquidity pool take fixed percentages, and the three
+// shares always sum back to the total.
 func accumulateRewards(state *state.StateDB, header *types.Header, uncles []*types.Header) {
 	// Select the correct block reward based on chain progression
-	blockReward := BlockReward
+	blockReward := BlockRewardAt(header.Number.Uint64())
 	// Accumulate the rewards for the miner and any included uncles
 	reward := new(big.Int).Set(blockReward)
 	r := new(big.Int)
@@ -464,5 +474,10 @@ func accumulateRewards(state *state.StateDB, header *types.Header, uncles []*typ
 		r.Div(blockReward, big32)
 		reward.Add(reward, r)
 	}
-	state.AddBalance(header.Coinbase, reward)
+
+	// Split the total reward: miner (coinbase), treasury, liquidity.
+	minerShare, treasuryShare, liquidityShare := SplitReward(reward)
+	state.AddBalance(header.Coinbase, minerShare)
+	state.AddBalance(TreasuryAddress, treasuryShare)
+	state.AddBalance(LiquidityAddress, liquidityShare)
 }

@@ -24,8 +24,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
 )
 
 // Hash represents the 32 byte SHA3 hash of arbitrary data.

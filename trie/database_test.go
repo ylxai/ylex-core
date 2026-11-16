@@ -19,9 +19,9 @@ package trie
 import (
 	"testing"
 
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // Tests that the trie database returns a missing trie node error if attempting

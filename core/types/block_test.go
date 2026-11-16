@@ -26,11 +26,11 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // from bcValidBlockTest.json, "SimpleTx"
@@ -46,7 +46,7 @@ func TestBlockEncoding(t *testing.T) {
 			t.Errorf("%s mismatch: got %v, want %v", f, got, want)
 		}
 	}
-	coinbase, _ := common.HexToAddress("cb848888f1f195afa192cfee860698584c030f4c9db1")
+	coinbase, _ := common.HexToAddress("796c7805f1f195afa192cfee860698584c030f4c9db1")
 	check("Difficulty", block.Difficulty(), big.NewInt(131072))
 	check("EnergyLimit", block.EnergyLimit(), uint64(3141592))
 	check("EnergyUsed", block.EnergyUsed(), uint64(21000))

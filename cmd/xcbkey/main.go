@@ -22,7 +22,7 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/internal/flags"
+	"github.com/ylxai/ylex-core/v2/internal/flags"
 )
 
 const (

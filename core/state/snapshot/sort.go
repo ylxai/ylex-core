@@ -19,7 +19,7 @@ package snapshot
 import (
 	"bytes"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // hashes is a helper to implement sort.Interface.

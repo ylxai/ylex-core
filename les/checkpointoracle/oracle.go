@@ -25,12 +25,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/contracts/checkpointoracle"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/contracts/checkpointoracle"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 // CheckpointOracle is responsible for offering the latest stable checkpoint

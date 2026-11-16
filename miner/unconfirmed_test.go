@@ -19,7 +19,7 @@ package miner
 import (
 	"testing"
 
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 // noopChainRetriever is an implementation of headerRetriever that always

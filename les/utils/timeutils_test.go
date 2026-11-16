@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common/mclock"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
 )
 
 func TestUpdateTimer(t *testing.T) {

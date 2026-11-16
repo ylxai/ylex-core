@@ -28,7 +28,7 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/common/math"
 )
 
 // Custom type which is registered in the flags library which cli uses for

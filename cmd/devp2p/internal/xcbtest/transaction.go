@@ -20,10 +20,10 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/internal/utesting"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/internal/utesting"
 )
 
 // var faucetAddr = common.HexToAddress("0x71562b71999873DB5b286dF957af199Ec94617F7")

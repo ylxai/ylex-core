@@ -22,7 +22,7 @@ package metrics
 import (
 	"github.com/shirou/gopsutil/cpu"
 
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // ReadCPUStats retrieves the current CPU stats.

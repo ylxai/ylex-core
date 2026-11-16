@@ -17,7 +17,7 @@
 // Package bind generates Core contract Go bindings.
 //
 // Detailed usage document and tutorial available on the go-core Wiki page:
-// https://github.com/core-coin/go-core/v2/wiki/Native-DApps:-Go-bindings-to-Core-contracts
+// https://github.com/ylxai/ylex-core/v2/wiki/Native-DApps:-Go-bindings-to-Core-contracts
 package bind
 
 import (
@@ -29,8 +29,8 @@ import (
 	"text/template"
 	"unicode"
 
-	"github.com/core-coin/go-core/v2/accounts/abi"
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/accounts/abi"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // Bind generates a Go wrapper around a contract ABI. This wrapper isn't meant

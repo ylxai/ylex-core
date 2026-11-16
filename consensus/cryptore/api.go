@@ -19,9 +19,9 @@ package cryptore
 import (
 	"errors"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 var errCryptoreStopped = errors.New("cryptore stopped")

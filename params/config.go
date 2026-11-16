@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 // Genesis hashes to enforce below configs on.
@@ -47,8 +47,12 @@ var CheckpointOracles = map[common.Hash]*CheckpointOracleConfig{
 
 var (
 	// MainnetChainConfig is the chain parameters to run a node on the main network.
+	//
+	// YLEX chain id 828. The previous chain (id 1) was a different network and
+	// is not compatible: the network id is signed into every transaction as
+	// replay protection, so a YLEX transaction can never be replayed onto it.
 	MainnetChainConfig = &ChainConfig{
-		NetworkID: big.NewInt(1),
+		NetworkID: big.NewInt(828),
 		Cryptore:  new(CryptoreConfig),
 	}
 
@@ -67,8 +71,10 @@ var (
 	}
 
 	// DevinChainConfig contains the chain parameters to run a node on the Devin test network.
+	//
+	// YLEX testnet chain id 829.
 	DevinChainConfig = &ChainConfig{
-		NetworkID: big.NewInt(3),
+		NetworkID: big.NewInt(829),
 		Cryptore:  new(CryptoreConfig),
 	}
 

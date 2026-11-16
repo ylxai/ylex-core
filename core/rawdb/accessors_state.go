@@ -17,10 +17,10 @@
 package rawdb
 
 import (
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // ReadPreimage retrieves a single preimage of the provided hash.

@@ -23,8 +23,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p/enr"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p/enr"
 )
 
 func init() {

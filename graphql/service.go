@@ -22,9 +22,9 @@ import (
 
 	"github.com/graph-gophers/graphql-go"
 
-	"github.com/core-coin/go-core/v2/internal/xcbapi"
+	"github.com/ylxai/ylex-core/v2/internal/xcbapi"
 
-	"github.com/core-coin/go-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/node"
 )
 
 type handler struct {

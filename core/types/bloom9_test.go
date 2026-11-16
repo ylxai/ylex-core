@@ -21,8 +21,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 func TestBloom(t *testing.T) {
@@ -92,7 +92,7 @@ func BenchmarkBloom9Lookup(b *testing.B) {
 }
 
 func BenchmarkCreateBloom(b *testing.B) {
-	addr, err := common.HexToAddress("cb970000000000000000000000000000000000000002")
+	addr, err := common.HexToAddress("796c7821000000000000000000000000000000000002")
 	if err != nil {
 		b.Fatal(err)
 	}

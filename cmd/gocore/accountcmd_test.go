@@ -142,7 +142,7 @@ func TestAccountUpdate(t *testing.T) {
 	datadir := tmpDatadirWithKeystore(t)
 	gocore := runGocore(t, "account", "update",
 		"--datadir", datadir, "--lightkdf",
-		"cb74db416ff2f9c53dabaf34f81142db30350ea7b144")
+		"796c78636ff2f9c53dabaf34f81142db30350ea7b144")
 	defer gocore.ExpectExit()
 	gocore.Expect(`
 Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
@@ -156,7 +156,7 @@ Repeat password: {{.InputLine "foobar"}}
 
 func TestUnlockFlag(t *testing.T) {
 	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
-		"--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144", "js", "testdata/empty.js")
+		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "js", "testdata/empty.js")
 	gocore.Expect(`
 Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
 !! Unsupported terminal, password will be echoed.
@@ -177,7 +177,7 @@ Password: {{.InputLine "foobar"}}
 
 func TestUnlockFlagWrongPassword(t *testing.T) {
 	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
-		"--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144", "js", "testdata/empty.js")
+		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "js", "testdata/empty.js")
 
 	defer gocore.ExpectExit()
 	gocore.Expect(`
@@ -192,10 +192,10 @@ Fatal: Failed to unlock account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 (co
 `)
 }
 
-// https://github.com/core-coin/go-core/v2/issues/1785
+// https://github.com/ylxai/ylex-core/v2/issues/1785
 func TestUnlockFlagMultiIndex(t *testing.T) {
 	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
-		"--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144", "--unlock", "0,2", "js", "testdata/empty.js")
+		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--unlock", "0,2", "js", "testdata/empty.js")
 
 	gocore.Expect(`
 Unlocking account 0 | Attempt 1/3
@@ -220,7 +220,7 @@ Password: {{.InputLine "foobar"}}
 
 func TestUnlockFlagPasswordFile(t *testing.T) {
 	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
-		"--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144", "--password", "testdata/passwords.txt", "--unlock", "0,2", "js", "testdata/empty.js")
+		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--password", "testdata/passwords.txt", "--unlock", "0,2", "js", "testdata/empty.js")
 
 	gocore.ExpectExit()
 
@@ -238,7 +238,7 @@ func TestUnlockFlagPasswordFile(t *testing.T) {
 
 func TestUnlockFlagPasswordFileWrongPassword(t *testing.T) {
 	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
-		"--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144", "--password",
+		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--password",
 		"testdata/wrong-passwords.txt", "--unlock", "0,2")
 	defer gocore.ExpectExit()
 	gocore.Expect(`
@@ -249,8 +249,8 @@ Fatal: Failed to unlock account 0 (could not decrypt key with given password)
 func TestUnlockFlagAmbiguous(t *testing.T) {
 	store := filepath.Join("..", "..", "accounts", "keystore", "testdata", "dupes")
 	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
-		"--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144", "--keystore",
-		store, "--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144",
+		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--keystore",
+		store, "--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144",
 		"js", "testdata/empty.js")
 	defer gocore.ExpectExit()
 
@@ -287,8 +287,8 @@ In order to avoid this warning, you need to remove the following duplicate key f
 func TestUnlockFlagAmbiguousWrongPassword(t *testing.T) {
 	store := filepath.Join("..", "..", "accounts", "keystore", "testdata", "dupes")
 	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
-		"--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144", "--keystore",
-		store, "--unlock", "cb74db416ff2f9c53dabaf34f81142db30350ea7b144")
+		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--keystore",
+		store, "--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144")
 
 	defer gocore.ExpectExit()
 

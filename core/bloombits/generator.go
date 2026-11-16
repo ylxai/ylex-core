@@ -19,7 +19,7 @@ package bloombits
 import (
 	"errors"
 
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 var (

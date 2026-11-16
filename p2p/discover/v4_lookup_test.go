@@ -22,10 +22,10 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p/discover/v4wire"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/enr"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p/discover/v4wire"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/enr"
 )
 
 func TestUDPv4_Lookup(t *testing.T) {

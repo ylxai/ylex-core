@@ -22,8 +22,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/accounts/abi"
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/accounts/abi"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // Tests that all the selectors contained in the 4byte database are valid.

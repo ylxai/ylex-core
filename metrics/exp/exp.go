@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/metrics"
-	"github.com/core-coin/go-core/v2/metrics/prometheus"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/metrics"
+	"github.com/ylxai/ylex-core/v2/metrics/prometheus"
 )
 
 type exp struct {

@@ -46,12 +46,12 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/simulations"
-	"github.com/core-coin/go-core/v2/p2p/simulations/adapters"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/simulations"
+	"github.com/ylxai/ylex-core/v2/p2p/simulations/adapters"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 var client *simulations.Client

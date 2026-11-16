@@ -24,9 +24,9 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
 )
 
 func TestVector_ECDH(t *testing.T) {

@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/core/vm"
 )
 
 // Compiler contains information about the parsed source

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // TestGetKYCFunctionStructure verifies the basic structure of the GetKYC function.

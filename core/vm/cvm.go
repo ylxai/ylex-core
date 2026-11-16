@@ -24,9 +24,9 @@ import (
 
 	"github.com/core-coin/uint256"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 // emptyCodeHash is used by create to ensure deployment is disallowed to already

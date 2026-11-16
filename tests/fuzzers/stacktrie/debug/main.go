@@ -21,7 +21,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/core-coin/go-core/v2/tests/fuzzers/stacktrie"
+	"github.com/ylxai/ylex-core/v2/tests/fuzzers/stacktrie"
 )
 
 func main() {

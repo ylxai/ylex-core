@@ -23,12 +23,12 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/prque"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/prque"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // InitDatabaseFromFreezer reinitializes an empty database from a previous batch

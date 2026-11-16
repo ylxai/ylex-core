@@ -22,8 +22,8 @@ import (
 	"net/http"
 	"sort"
 
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/metrics"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/metrics"
 )
 
 // Handler returns an HTTP handler which dump metrics in Prometheus format.

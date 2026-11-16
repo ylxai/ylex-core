@@ -23,8 +23,8 @@ import (
 	"github.com/cloudflare/cloudflare-go"
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/p2p/dnsdisc"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/p2p/dnsdisc"
 )
 
 var (

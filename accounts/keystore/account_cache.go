@@ -29,9 +29,9 @@ import (
 
 	mapset "github.com/deckarep/golang-set"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // Minimum amount of time between cache reloads. This limit applies if the platform does

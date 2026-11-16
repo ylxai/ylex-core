@@ -25,19 +25,19 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/trie"
 )
 
 //go:generate gencodec -type Genesis -field-override genesisSpecMarshaling -out gen_genesis.go
@@ -46,8 +46,14 @@ import (
 var errGenesisNoConfig = errors.New("genesis has no chain configuration")
 
 var (
-	DefaultCoinbaseMainnet, _ = common.HexToAddress("cb540000000000000000000000000000000000000000")
-	DefaultCoinbaseDevin, _   = common.HexToAddress("ab720000000000000000000000000000000000000000")
+	// YlexGenesisCoinbase is the protocol address credited with the genesis
+	// coinbase on YLEX. It carries the "ce" network prefix, which is the
+	// prefix YLEX uses for every chain id outside the first two, so it
+	// validates against YLEX's own address rules.
+	YlexGenesisCoinbase = common.YlexGenesisCoinbase
+
+	DefaultCoinbaseMainnet, _ = common.HexToAddress("796c7889000000000000000000000000000000000000")
+	DefaultCoinbaseDevin, _   = common.HexToAddress("796c7889000000000000000000000000000000000000")
 	DefaultCoinbasePrivate, _ = common.HexToAddress("ce450000000000000000000000000000000000000000")
 )
 
@@ -336,29 +342,39 @@ func GenesisBlockForTesting(db xcbdb.Database, addr common.Address, balance *big
 	return g.MustCommit(db)
 }
 
-// DefaultGenesisBlock returns the Core main net genesis block.
+// DefaultGenesisBlock returns the YLEX mainnet genesis block.
+//
+// YLEX has no premine. The alloc is empty: every YLEX coin on the chain was
+// mined. The coinbase address is the protocol address, so the first block's
+// reward goes to the miner that finds it, like every other block.
+//
+// The timestamp is fixed and deterministic so that anyone running the node
+// software derives the same genesis hash. The nonce is a placeholder that
+// the genesis proof-of-work search resolves; see mkgenesis.
 func DefaultGenesisBlock() *Genesis {
 	return &Genesis{
-		Coinbase:    DefaultCoinbaseMainnet,
+		Coinbase:    YlexGenesisCoinbase,
 		Config:      params.MainnetChainConfig,
-		Timestamp:   1651833293,
-		Nonce:       71,
-		Difficulty:  big.NewInt(10000000),
+		Timestamp:   1767225600, // 2026-01-01T00:00:00Z
+		Nonce:       0,
+		Difficulty:  big.NewInt(4000),
 		EnergyLimit: 14700000,
-		Alloc:       decodePrealloc(mainnetAllocData),
+		Alloc:       GenesisAlloc{},
 	}
 }
 
-// DefaultDevinGenesisBlock returns the Devin network genesis block.
+// DefaultDevinGenesisBlock returns the YLEX testnet (Devin) genesis block.
+//
+// Like mainnet, the alloc is empty: no premine on the testnet either.
 func DefaultDevinGenesisBlock() *Genesis {
 	return &Genesis{
-		Coinbase:    DefaultCoinbaseDevin,
+		Coinbase:    YlexGenesisCoinbase,
 		Config:      params.DevinChainConfig,
-		Difficulty:  big.NewInt(32000),
-		Timestamp:   1696411912,
-		Nonce:       0x000000000003,
+		Difficulty:  big.NewInt(4000),
+		Timestamp:   1767225600, // 2026-01-01T00:00:00Z
+		Nonce:       0,
 		EnergyLimit: 14700000,
-		Alloc:       decodePrealloc(devinAllocData),
+		Alloc:       GenesisAlloc{},
 	}
 }
 

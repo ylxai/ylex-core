@@ -23,12 +23,12 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	xcbtest "github.com/core-coin/go-core/v2/cmd/devp2p/internal/xcbtest"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/rlpx"
-	"github.com/core-coin/go-core/v2/rlp"
+	xcbtest "github.com/ylxai/ylex-core/v2/cmd/devp2p/internal/xcbtest"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/rlpx"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 var (

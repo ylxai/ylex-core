@@ -28,8 +28,8 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 type PublicKey [57]byte
@@ -112,7 +112,7 @@ func Keccak512(data ...[]byte) []byte {
 // CreateAddress creates an core address given the bytes and the nonce
 func CreateAddress(b common.Address, nonce uint64) common.Address {
 	data, _ := rlp.EncodeToBytes([]interface{}{b, nonce})
-	addr := SHA3(data)[12:]
+	addr := common.TrimAddressPayload(SHA3(data)[12:])
 	prefix := common.DefaultNetworkID.Bytes()
 	checksum := common.Hex2Bytes(common.CalculateChecksum(addr, prefix))
 	return common.BytesToAddress(append(append(prefix, checksum...), addr...))
@@ -121,14 +121,14 @@ func CreateAddress(b common.Address, nonce uint64) common.Address {
 // CreateAddress2 creates an core address given the address bytes, initial
 // contract code hash and a salt.
 func CreateAddress2(b common.Address, salt [32]byte, inithash []byte) common.Address {
-	addr := SHA3([]byte{0xff}, b.Bytes(), salt[:], inithash)[12:]
+	addr := common.TrimAddressPayload(SHA3([]byte{0xff}, b.Bytes(), salt[:], inithash)[12:])
 	prefix := common.DefaultNetworkID.Bytes()
 	checksum := common.Hex2Bytes(common.CalculateChecksum(addr, prefix))
 	return common.BytesToAddress(append(append(prefix, checksum...), addr...))
 }
 
 func PubkeyToAddress(p *PublicKey) common.Address {
-	addr := SHA3(p[:])[12:]
+	addr := common.TrimAddressPayload(SHA3(p[:])[12:])
 	prefix := common.DefaultNetworkID.Bytes()
 	checksum := common.Hex2Bytes(common.CalculateChecksum(addr, prefix))
 	return common.BytesToAddress(append(append(prefix, checksum...), addr...))

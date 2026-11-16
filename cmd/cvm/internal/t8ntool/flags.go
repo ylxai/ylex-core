@@ -22,7 +22,7 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/tests"
+	"github.com/ylxai/ylex-core/v2/tests"
 )
 
 var (

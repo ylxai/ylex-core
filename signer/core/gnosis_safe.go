@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/math"
 )
 
 // GnosisSafeTx is a type to parse the safe-tx returned by the relayer,

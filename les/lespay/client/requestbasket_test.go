@@ -20,7 +20,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/les/utils"
+	"github.com/ylxai/ylex-core/v2/les/utils"
 )
 
 func checkU64(t *testing.T, name string, value, exp uint64) {

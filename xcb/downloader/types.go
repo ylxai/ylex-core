@@ -19,7 +19,7 @@ package downloader
 import (
 	"fmt"
 
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 // peerDropFn is a callback type for dropping a peer detected as malicious.

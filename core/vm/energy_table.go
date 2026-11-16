@@ -19,9 +19,9 @@ package vm
 import (
 	"errors"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 // memoryEnergyCost calculates the quadratic energy for memory expansion. It does so

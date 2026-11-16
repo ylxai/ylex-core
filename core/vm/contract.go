@@ -21,7 +21,7 @@ import (
 
 	"github.com/core-coin/uint256"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // ContractRef is a reference to the contract's backing object

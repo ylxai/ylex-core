@@ -3,7 +3,7 @@ package scapi
 import (
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // TestGetPriceFunctionStructure verifies the basic structure of the GetPrice function.

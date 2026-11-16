@@ -26,12 +26,12 @@ import (
 
 	"github.com/olekukonko/tablewriter"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
-	"github.com/core-coin/go-core/v2/xcbdb/leveldb"
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/leveldb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // freezerdb is a database wrapper that enabled freezer data retrievals.

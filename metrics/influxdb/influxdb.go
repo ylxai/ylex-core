@@ -7,8 +7,8 @@ import (
 
 	"github.com/influxdata/influxdb/client"
 
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/metrics"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/metrics"
 )
 
 type reporter struct {

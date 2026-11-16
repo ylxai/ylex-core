@@ -28,19 +28,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/consensus"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/core/vm"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/trie"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/consensus"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/trie"
 )
 
 // So we can deterministically seed different blockchains
@@ -1406,7 +1406,7 @@ func TestCIP161AccountRemoval(t *testing.T) {
 // tests that under weird reorg conditions the blockchain and its internal header-
 // chain return the same latest block/header.
 //
-// https://github.com/core-coin/go-core/v2/pull/15941
+// https://github.com/ylxai/ylex-core/v2/pull/15941
 func TestBlockchainHeaderchainReorgConsistency(t *testing.T) {
 	// Generate a canonical chain to act as the main dataset
 	engine := cryptore.NewFaker()
@@ -1669,8 +1669,8 @@ func TestIncompleteAncientReceiptChainInsertion(t *testing.T) {
 // overtake the 'canon' chain until after it's passed canon by about 200 blocks.
 //
 // Details at:
-//   - https://github.com/core-coin/go-core/v2/issues/18977
-//   - https://github.com/core-coin/go-core/v2/pull/18988
+//   - https://github.com/ylxai/ylex-core/v2/issues/18977
+//   - https://github.com/ylxai/ylex-core/v2/pull/18988
 func TestLowDiffLongChain(t *testing.T) {
 	// Generate a canonical chain to act as the main dataset
 	engine := cryptore.NewFaker()
@@ -2262,7 +2262,7 @@ func TestSkipStaleTxIndicesInFastSync(t *testing.T) {
 
 // Benchmarks large blocks with value transfers to non-existing accounts
 func benchmarkLargeNumberOfValueToNonexisting(b *testing.B, numTxs, numBlocks int, recipientFn func(uint64) common.Address, dataFn func(uint64) []byte) {
-	addr, err := common.HexToAddress("cb21000000000000000000000000000000000000aaaa")
+	addr, err := common.HexToAddress("796c786900000000000000000000000000000000aaaa")
 	if err != nil {
 		b.Error(err)
 	}
@@ -2428,8 +2428,8 @@ func TestSideImportPrunedBlocks(t *testing.T) {
 // first, but the journal wiped the entire state object on create-revert.
 func TestDeleteCreateRevert(t *testing.T) {
 	var (
-		aa, err1 = common.HexToAddress("cb21000000000000000000000000000000000000aaaa")
-		bb, err2 = common.HexToAddress("cb08000000000000000000000000000000000000bbbb")
+		aa, err1 = common.HexToAddress("796c786900000000000000000000000000000000aaaa")
+		bb, err2 = common.HexToAddress("796c786700000000000000000000000000000000bbbb")
 		// Generate a canonical chain to act as the main dataset
 		engine = cryptore.NewFaker()
 		db     = rawdb.NewMemoryDatabase()
@@ -2506,7 +2506,7 @@ func TestDeleteCreateRevert(t *testing.T) {
 // Expected outcome is that _all_ slots are cleared from A, due to the selfdestruct,
 // and then the new slots exist
 func TestDeleteRecreateSlots(t *testing.T) {
-	bb, err := common.HexToAddress("cb08000000000000000000000000000000000000bbbb")
+	bb, err := common.HexToAddress("796c786700000000000000000000000000000000bbbb")
 	if err != nil {
 		t.Error(err)
 	}
@@ -2636,7 +2636,7 @@ func TestDeleteRecreateSlots(t *testing.T) {
 // regular value-transfer
 // Expected outcome is that _all_ slots are cleared from A
 func TestDeleteRecreateAccount(t *testing.T) {
-	aa, err := common.HexToAddress("cb21000000000000000000000000000000000000aaaa")
+	aa, err := common.HexToAddress("796c786900000000000000000000000000000000aaaa")
 	if err != nil {
 		t.Error(err)
 	}
@@ -2715,7 +2715,7 @@ func TestDeleteRecreateAccount(t *testing.T) {
 // Expected outcome is that _all_ slots are cleared from A, due to the selfdestruct,
 // and then the new slots exist
 func TestDeleteRecreateSlotsAcrossManyBlocks(t *testing.T) {
-	bb, err := common.HexToAddress("cb08000000000000000000000000000000000000bbbb")
+	bb, err := common.HexToAddress("796c786700000000000000000000000000000000bbbb")
 	if err != nil {
 		t.Error(err)
 	}
@@ -2919,7 +2919,7 @@ func TestDeleteRecreateSlotsAcrossManyBlocks(t *testing.T) {
 // We need to either roll back the snapDestructs, or not place it into snapDestructs
 // in the first place.
 func TestInitThenFailCreateContract(t *testing.T) {
-	bb, err := common.HexToAddress("cb08000000000000000000000000000000000000bbbb")
+	bb, err := common.HexToAddress("796c786700000000000000000000000000000000bbbb")
 	if err != nil {
 		t.Error(err)
 	}

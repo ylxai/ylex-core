@@ -23,11 +23,11 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/contracts/checkpointoracle/contract"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/contracts/checkpointoracle/contract"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 // CheckpointOracle is a Go wrapper around an on-chain checkpoint oracle contract.

@@ -19,8 +19,8 @@ package client
 import (
 	"sync"
 
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/nodestate"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/nodestate"
 )
 
 // FillSet tries to read nodes from an input iterator and add them to a node set by

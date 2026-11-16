@@ -22,12 +22,12 @@ import (
 	"io/ioutil"
 	"math/big"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/accounts/external"
-	"github.com/core-coin/go-core/v2/accounts/keystore"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/accounts/external"
+	"github.com/ylxai/ylex-core/v2/accounts/keystore"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 // ErrNoNetworkID is returned whenever the user failed to specify a network id.

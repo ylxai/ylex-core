@@ -24,16 +24,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/accounts/abi"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/consensus"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/asm"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/core/vm"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/accounts/abi"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/consensus"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/asm"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 func TestDefaults(t *testing.T) {
@@ -103,7 +103,7 @@ func TestExecute(t *testing.T) {
 
 func TestCall(t *testing.T) {
 	state, _ := state.New(common.Hash{}, state.NewDatabase(rawdb.NewMemoryDatabase()), nil)
-	address, err := common.HexToAddress("cb75000000000000000000000000000000000000000a")
+	address, err := common.HexToAddress("796c784000000000000000000000000000000000000a")
 	if err != nil {
 		t.Error(err)
 	}
@@ -207,7 +207,7 @@ func BenchmarkCVM_CREATE2_1200(bench *testing.B) {
 }
 
 func fakeHeader(n uint64, parentHash common.Hash) *types.Header {
-	coinbase, err := common.HexToAddress("cb8000000000000000000000000000000000deadbeef")
+	coinbase, err := common.HexToAddress("796c78930000000000000000000000000000deadbeef")
 	if err != nil {
 		panic(err)
 	}
@@ -346,7 +346,7 @@ func (s *stepCounter) CaptureEnd(output []byte, energyUsed uint64, t time.Durati
 
 func TestJumpSub1024Limit(t *testing.T) {
 	state, _ := state.New(common.Hash{}, state.NewDatabase(rawdb.NewMemoryDatabase()), nil)
-	address, err := common.HexToAddress("cb75000000000000000000000000000000000000000a")
+	address, err := common.HexToAddress("796c784000000000000000000000000000000000000a")
 	if err != nil {
 		t.Error(err)
 	}
@@ -385,7 +385,7 @@ func TestJumpSub1024Limit(t *testing.T) {
 
 func TestReturnSubShallow(t *testing.T) {
 	state, _ := state.New(common.Hash{}, state.NewDatabase(rawdb.NewMemoryDatabase()), nil)
-	address, err := common.HexToAddress("cb75000000000000000000000000000000000000000a")
+	address, err := common.HexToAddress("796c784000000000000000000000000000000000000a")
 	if err != nil {
 		t.Error(err)
 	}
@@ -579,12 +579,12 @@ func benchmarkNonModifyingCode(energy uint64, code []byte, name string, b *testi
 		sender      = vm.AccountRef(cfg.Origin)
 	)
 	cfg.State.CreateAccount(destination)
-	eoa, _ := common.HexToAddress("cb270000000000000000000000000000000000000001")
+	eoa, _ := common.HexToAddress("796c7855000000000000000000000000000000000001")
 	{
 		cfg.State.CreateAccount(eoa)
 		cfg.State.SetNonce(eoa, 100)
 	}
-	reverting, _ := common.HexToAddress("cb970000000000000000000000000000000000000002")
+	reverting, _ := common.HexToAddress("796c7821000000000000000000000000000000000002")
 	{
 		cfg.State.CreateAccount(reverting)
 		cfg.State.SetCode(reverting, []byte{

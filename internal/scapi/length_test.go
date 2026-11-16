@@ -3,7 +3,7 @@ package scapi
 import (
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 func TestLengthFunctionLogic(t *testing.T) {
@@ -94,10 +94,10 @@ func TestLengthFunctionLogic(t *testing.T) {
 
 func TestLengthWithUserExample(t *testing.T) {
 	// Test with the user's example address
-	// xcb.getCode("cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c", "latest")
+	// xcb.getCode("796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c", "latest")
 	// This would return the actual contract code, but we'll simulate it
 
-	userAddress := "cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c"
+	userAddress := "796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c"
 
 	t.Logf("User's example:")
 	t.Logf("  address: %s", userAddress)

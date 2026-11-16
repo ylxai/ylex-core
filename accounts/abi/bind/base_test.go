@@ -24,14 +24,14 @@ import (
 	"strings"
 	"testing"
 
-	core "github.com/core-coin/go-core/v2"
-	"github.com/core-coin/go-core/v2/accounts/abi"
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/rlp"
+	core "github.com/ylxai/ylex-core/v2"
+	"github.com/ylxai/ylex-core/v2/accounts/abi"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 type mockCaller struct {
@@ -62,8 +62,8 @@ func (mc *mockCaller) PendingCallContract(ctx context.Context, call core.CallMsg
 }
 
 var (
-	mockAddr, _ = common.HexToAddress("cb27de521e43741cf785cbad450d5649187b9612018f")
-	addr2, _    = common.HexToAddress("cb540000000000000000000000000000000000000000")
+	mockAddr, _ = common.HexToAddress("796c78241e43741cf785cbad450d5649187b9612018f")
+	addr2, _    = common.HexToAddress("796c7889000000000000000000000000000000000000")
 )
 
 func TestPassingBlockNumber(t *testing.T) {

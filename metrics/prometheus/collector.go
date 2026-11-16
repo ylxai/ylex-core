@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/metrics"
+	"github.com/ylxai/ylex-core/v2/metrics"
 )
 
 var (

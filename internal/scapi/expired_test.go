@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // TestExpiredFunctionStructure verifies the basic structure of the Expired function.

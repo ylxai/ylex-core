@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // In this example, our client wishes to track the latest 'block number'

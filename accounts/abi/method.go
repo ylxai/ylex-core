@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 // FunctionType represents different types of functions a contract might have.

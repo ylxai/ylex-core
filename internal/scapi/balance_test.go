@@ -3,13 +3,13 @@ package scapi
 import (
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
 )
 
 func TestBalanceOfFunctionData(t *testing.T) {
 	// Test the data construction logic that matches the user's example
-	holderICAN := "cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c"
+	holderICAN := "796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c"
 	bcan := holderICAN[len(holderICAN)-40:] // last 20 bytes (40 hex chars)
 
 	// Convert to address (use the full ICAN with cb prefix)
@@ -49,13 +49,13 @@ func TestBalanceOfAddressParsing(t *testing.T) {
 	}{
 		{
 			name:       "User example",
-			holderICAN: "cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c",
-			expected:   "cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c",
+			holderICAN: "796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c",
+			expected:   "796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c",
 		},
 		{
 			name:       "Short ICAN",
-			holderICAN: "cb270000000000000000000000000000000000000001",
-			expected:   "cb270000000000000000000000000000000000000001",
+			holderICAN: "796c7855000000000000000000000000000000000001",
+			expected:   "796c7855000000000000000000000000000000000001",
 		},
 	}
 
@@ -80,11 +80,11 @@ func TestBalanceOfAddressParsing(t *testing.T) {
 func TestBalanceOfUserExample(t *testing.T) {
 	// Test the exact example from the user's request for CBC20 balanceOf
 	// balanceOf(address) -> 0x1d7976f3 (standard CBC20 selector)
-	// const holderICAN = "cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c"; // example
+	// const holderICAN = "796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c"; // example
 	// const bcan = holderICAN.slice(-40);                      // last 20 bytes
 	// const data = "0x1d7976f3" + "0".repeat(24) + bcan;      // left-pad to 32 bytes
 
-	holderICAN := "cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c"
+	holderICAN := "796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c"
 	bcan := holderICAN[len(holderICAN)-40:] // last 20 bytes (40 hex chars)
 
 	t.Logf("User's example:")

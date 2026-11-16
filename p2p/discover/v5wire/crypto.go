@@ -25,8 +25,8 @@ import (
 
 	"golang.org/x/crypto/hkdf"
 
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
 )
 
 const (

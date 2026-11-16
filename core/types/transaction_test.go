@@ -24,16 +24,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // The values in those tests are from the Transaction Tests
 // at github.com/core-coin/tests.
 var (
-	address, errAddr = common.HexToAddress("cb08095e7baea6a6c7c4c2dfeb977efac326af552d87")
+	address, errAddr = common.HexToAddress("796c78567baea6a6c7c4c2dfeb977efac326af552d87")
 	key, _           = crypto.UnmarshalPrivateKeyHex("2da94fd47e8369ffe88850654de266727ff284c3f78d61b04153cb9a908ed3b61248ac5172d3caabbc3493807c0297645ae328e10eb9543bdb")
 
 	emptyTx = NewTransaction(
@@ -100,7 +100,7 @@ func TestRecipientEmpty(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	expected, err := common.HexToAddress("cb8238748ee459bc0c1d86eab1d3f6d83bb433cdad9c")
+	expected, err := common.HexToAddress("796c78408ee459bc0c1d86eab1d3f6d83bb433cdad9c")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -119,7 +119,7 @@ func TestRecipientNormal(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	expected, err := common.HexToAddress("cb8238748ee459bc0c1d86eab1d3f6d83bb433cdad9c")
+	expected, err := common.HexToAddress("796c78408ee459bc0c1d86eab1d3f6d83bb433cdad9c")
 	if err != nil {
 		t.Fatal(err)
 	}

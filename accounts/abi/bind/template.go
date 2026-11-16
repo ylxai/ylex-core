@@ -16,7 +16,7 @@
 
 package bind
 
-import "github.com/core-coin/go-core/v2/accounts/abi"
+import "github.com/ylxai/ylex-core/v2/accounts/abi"
 
 // tmplData is the data structure required to fill the binding template.
 type tmplData struct {
@@ -84,12 +84,12 @@ import (
 	"math/big"
 	"strings"
 
-	core "github.com/core-coin/go-core/v2"
-	"github.com/core-coin/go-core/v2/accounts/abi"
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/event"
+	core "github.com/ylxai/ylex-core/v2"
+	"github.com/ylxai/ylex-core/v2/accounts/abi"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/event"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

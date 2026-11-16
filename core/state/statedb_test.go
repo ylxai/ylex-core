@@ -29,9 +29,9 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 // Tests that updating a state trie does not leak any database writes prior to
@@ -146,7 +146,7 @@ func TestIntermediateLeaks(t *testing.T) {
 
 // TestCopy tests that copying a StateDB object indeed makes the original and
 // the copy independent of each other. This test is a regression test against
-// https://github.com/core-coin/go-core/v2/pull/15549.
+// https://github.com/ylxai/ylex-core/v2/pull/15549.
 func TestCopy(t *testing.T) {
 	// Create a random state test to copy and modify "independently"
 	orig, _ := New(common.Hash{}, NewDatabase(rawdb.NewMemoryDatabase()), nil)
@@ -475,10 +475,10 @@ func TestTouchDelete(t *testing.T) {
 }
 
 // TestCopyOfCopy tests that modified objects are carried over to the copy, and the copy of the copy.
-// See https://github.com/core-coin/go-core/v2/pull/15225#issuecomment-380191512
+// See https://github.com/ylxai/ylex-core/v2/pull/15225#issuecomment-380191512
 func TestCopyOfCopy(t *testing.T) {
 	state, _ := New(common.Hash{}, NewDatabase(rawdb.NewMemoryDatabase()), nil)
-	addr, err := common.HexToAddress("cb21000000000000000000000000000000000000aaaa")
+	addr, err := common.HexToAddress("796c786900000000000000000000000000000000aaaa")
 	if err != nil {
 		t.Error(err)
 	}
@@ -495,12 +495,12 @@ func TestCopyOfCopy(t *testing.T) {
 // Tests a regression where committing a copy lost some internal meta information,
 // leading to corrupted subsequent copies.
 //
-// See https://github.com/core-coin/go-core/v2/issues/20106.
+// See https://github.com/ylxai/ylex-core/v2/issues/20106.
 func TestCopyCommitCopy(t *testing.T) {
 	state, _ := New(common.Hash{}, NewDatabase(rawdb.NewMemoryDatabase()), nil)
 
 	// Create an account and check if the retrieved balance is correct
-	addr, err := common.HexToAddress("cb05affeaffeaffeaffeaffeaffeaffeaffeaffeaffe")
+	addr, err := common.HexToAddress("796c7880affeaffeaffeaffeaffeaffeaffeaffeaffe")
 	if err != nil {
 		t.Error(err)
 	}
@@ -570,12 +570,12 @@ func TestCopyCommitCopy(t *testing.T) {
 // Tests a regression where committing a copy lost some internal meta information,
 // leading to corrupted subsequent copies.
 //
-// See https://github.com/core-coin/go-core/v2/issues/20106.
+// See https://github.com/ylxai/ylex-core/v2/issues/20106.
 func TestCopyCopyCommitCopy(t *testing.T) {
 	state, _ := New(common.Hash{}, NewDatabase(rawdb.NewMemoryDatabase()), nil)
 
 	// Create an account and check if the retrieved balance is correct
-	addr, err := common.HexToAddress("cb05affeaffeaffeaffeaffeaffeaffeaffeaffeaffe")
+	addr, err := common.HexToAddress("796c7880affeaffeaffeaffeaffeaffeaffeaffeaffe")
 	if err != nil {
 		t.Error(err)
 	}

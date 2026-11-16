@@ -20,7 +20,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/core-coin/go-core/v2/core/asm"
+	"github.com/ylxai/ylex-core/v2/core/asm"
 )
 
 func Compile(fn string, src []byte, debug bool) (string, error) {

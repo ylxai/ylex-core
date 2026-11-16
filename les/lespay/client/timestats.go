@@ -21,8 +21,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/core-coin/go-core/v2/les/utils"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/les/utils"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 const (

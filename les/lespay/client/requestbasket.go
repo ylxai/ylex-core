@@ -19,8 +19,8 @@ package client
 import (
 	"io"
 
-	"github.com/core-coin/go-core/v2/les/utils"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/les/utils"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 const basketFactor = 1000000 // reference basket amount and value scale factor

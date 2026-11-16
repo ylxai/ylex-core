@@ -22,15 +22,15 @@ import (
 	"os/user"
 	"time"
 
-	"github.com/core-coin/go-core/v2/xcb/energyprice"
+	"github.com/ylxai/ylex-core/v2/xcb/energyprice"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/miner"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/miner"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
 )
 
 // DefaultFullGPOConfig contains default energyprice oracle settings for full node.
@@ -51,7 +51,7 @@ var DefaultLightGPOConfig = energyprice.Config{
 var DefaultConfig = Config{
 	SyncMode:                downloader.FullSync,
 	Cryptore:                cryptore.Config{},
-	NetworkId:               1,
+	NetworkId:               828,
 	LightPeers:              100,
 	UltraLightFraction:      75,
 	DatabaseCache:           512,

@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/common/mclock"
-	lps "github.com/core-coin/go-core/v2/les/lespay/server"
-	"github.com/core-coin/go-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
+	lps "github.com/ylxai/ylex-core/v2/les/lespay/server"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
 )
 
 var (

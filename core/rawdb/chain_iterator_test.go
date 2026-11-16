@@ -23,8 +23,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 func TestChainIterator(t *testing.T) {

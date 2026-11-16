@@ -43,23 +43,23 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/core-coin/go-core/v2/accounts"
-	"github.com/core-coin/go-core/v2/accounts/keystore"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/les"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/discv5"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/nat"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/xcb"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
-	"github.com/core-coin/go-core/v2/xcbclient"
-	"github.com/core-coin/go-core/v2/xcbstats"
+	"github.com/ylxai/ylex-core/v2/accounts"
+	"github.com/ylxai/ylex-core/v2/accounts/keystore"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/les"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/discv5"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/nat"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/xcb"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/xcbclient"
+	"github.com/ylxai/ylex-core/v2/xcbstats"
 )
 
 var (
@@ -462,7 +462,7 @@ func (f *faucet) apiHandler(w http.ResponseWriter, r *http.Request) {
 			username, avatar, address, err = authNoAuth(msg.URL)
 		default:
 			//lint:ignore ST1005 This error is to be displayed in the browser
-			err = errors.New("Something funky happened, please open an issue at https://github.com/core-coin/go-core/issues")
+			err = errors.New("Something funky happened, please open an issue at https://github.com/ylxai/ylex-core/issues")
 		}
 		if err != nil {
 			if err = sendError(conn, err); err != nil {

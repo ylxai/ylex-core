@@ -23,10 +23,10 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	core "github.com/core-coin/go-core/v2"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/event"
+	core "github.com/ylxai/ylex-core/v2"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/event"
 )
 
 // Account represents an Core account located at a specific location defined

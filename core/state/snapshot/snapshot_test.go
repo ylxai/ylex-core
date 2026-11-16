@@ -24,9 +24,9 @@ import (
 
 	"github.com/VictoriaMetrics/fastcache"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // randomHash generates a random blob of data and returns it as a hash.

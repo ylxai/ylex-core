@@ -24,9 +24,9 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // CIP-8 test vectors.

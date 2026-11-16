@@ -23,8 +23,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 // The ABI holds information about a contract's context and available

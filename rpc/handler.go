@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // handler handles JSON-RPC messages. There is one handler per connection. Note that

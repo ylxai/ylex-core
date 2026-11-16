@@ -19,7 +19,7 @@ package snapshot
 import (
 	"bytes"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // binaryIterator is a simplistic iterator to step over the accounts or storage

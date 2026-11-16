@@ -24,14 +24,14 @@ import (
 	"sync"
 	"time"
 
-	c "github.com/core-coin/go-core/v2"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/event"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/rpc"
+	c "github.com/ylxai/ylex-core/v2"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/event"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 // Type determines the kind of filter and is used to put the filter in to

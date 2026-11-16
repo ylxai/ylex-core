@@ -19,9 +19,9 @@ package client
 import (
 	"time"
 
-	"github.com/core-coin/go-core/v2/common/mclock"
-	"github.com/core-coin/go-core/v2/les/utils"
-	"github.com/core-coin/go-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
+	"github.com/ylxai/ylex-core/v2/les/utils"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
 )
 
 // PrivateClientAPI implements the lespay client side API

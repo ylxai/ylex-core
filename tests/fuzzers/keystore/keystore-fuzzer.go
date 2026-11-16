@@ -19,7 +19,7 @@ package keystore
 import (
 	"os"
 
-	"github.com/core-coin/go-core/v2/accounts/keystore"
+	"github.com/ylxai/ylex-core/v2/accounts/keystore"
 )
 
 func Fuzz(input []byte) int {

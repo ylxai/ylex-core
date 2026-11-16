@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"sort"
 
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 // Forks table defines supported forks and their chain config.

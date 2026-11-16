@@ -26,9 +26,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 const jsondata = `
@@ -320,7 +320,7 @@ func ExampleJSON() {
 	if err != nil {
 		panic(err)
 	}
-	addr, err := common.HexToAddress("cb270000000000000000000000000000000000000001")
+	addr, err := common.HexToAddress("796c7855000000000000000000000000000000000001")
 	if err != nil {
 		panic(err)
 	}
@@ -780,7 +780,7 @@ func TestUnpackEventIntoMap(t *testing.T) {
 	}
 
 	receivedMap := map[string]interface{}{}
-	sender, err := common.HexToAddress("cb63376c47978271565f56deb45495afa69e59c16ab2")
+	sender, err := common.HexToAddress("796c787247978271565f56deb45495afa69e59c16ab2")
 	if err != nil {
 		t.Error(err)
 	}
@@ -928,7 +928,7 @@ func TestUnpackIntoMapNamingConflict(t *testing.T) {
 	if len(data)%32 == 0 {
 		t.Errorf("len(data) is %d, want a non-multiple of 32", len(data))
 	}
-	sender, err := common.HexToAddress("cb63376c47978271565f56deb45495afa69e59c16ab2")
+	sender, err := common.HexToAddress("796c787247978271565f56deb45495afa69e59c16ab2")
 	if err != nil {
 		t.Error(err)
 	}

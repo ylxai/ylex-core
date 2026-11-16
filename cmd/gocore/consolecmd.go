@@ -26,10 +26,10 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/core-coin/go-core/v2/cmd/utils"
-	"github.com/core-coin/go-core/v2/console"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/cmd/utils"
+	"github.com/ylxai/ylex-core/v2/console"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 var (
@@ -44,7 +44,7 @@ var (
 		Description: `
 The Gocore console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
-See https://github.com/core-coin/go-core/v2/wiki/JavaScript-Console.`,
+See https://github.com/ylxai/ylex-core/v2/wiki/JavaScript-Console.`,
 	}
 
 	attachCommand = cli.Command{
@@ -57,7 +57,7 @@ See https://github.com/core-coin/go-core/v2/wiki/JavaScript-Console.`,
 		Description: `
 The Gocore console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
-See https://github.com/core-coin/go-core/v2/wiki/JavaScript-Console.
+See https://github.com/ylxai/ylex-core/v2/wiki/JavaScript-Console.
 This command allows to open a console on a running gocore node.`,
 	}
 
@@ -70,7 +70,7 @@ This command allows to open a console on a running gocore node.`,
 		Category:  "CONSOLE COMMANDS",
 		Description: `
 The JavaScript VM exposes a node admin interface as well as the Ðapp
-JavaScript API. See https://github.com/core-coin/go-core/v2/wiki/JavaScript-Console`,
+JavaScript API. See https://github.com/ylxai/ylex-core/v2/wiki/JavaScript-Console`,
 	}
 )
 

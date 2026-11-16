@@ -24,10 +24,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 func TestLegacyReceiptDecoding(t *testing.T) {
@@ -48,7 +48,7 @@ func TestLegacyReceiptDecoding(t *testing.T) {
 			encodeAsV3StoredReceiptRLP,
 		},
 	}
-	addr, err := common.HexToAddress("cb270000000000000000000000000000000000000001")
+	addr, err := common.HexToAddress("796c7855000000000000000000000000000000000001")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -158,7 +158,7 @@ func encodeAsV3StoredReceiptRLP(want *Receipt) ([]byte, error) {
 // Tests that receipt data can be correctly derived from the contextual infos
 func TestDeriveFields(t *testing.T) {
 	// Create a few transactions to have receipts for
-	addr, err := common.HexToAddress("cb970000000000000000000000000000000000000002")
+	addr, err := common.HexToAddress("796c7821000000000000000000000000000000000002")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -171,13 +171,13 @@ func TestDeriveFields(t *testing.T) {
 	txs[0], _ = SignTx(txs[0], MakeSigner(big.NewInt(1)), priv)
 	txs[1], _ = SignTx(txs[1], MakeSigner(big.NewInt(1)), priv)
 
-	addr1, _ := common.HexToAddress("cb661100000000000000000000000000000000000000")
-	addr2, _ := common.HexToAddress("cb150111000000000000000000000000000000000000")
-	addr3, _ := common.HexToAddress("cb810111110000000000000000000000000000000000")
+	addr1, _ := common.HexToAddress("796c7889000000000000000000000000000000000000")
+	addr2, _ := common.HexToAddress("796c7889000000000000000000000000000000000000")
+	addr3, _ := common.HexToAddress("796c7832110000000000000000000000000000000000")
 
-	addr4, _ := common.HexToAddress("cb782200000000000000000000000000000000000000")
-	addr5, _ := common.HexToAddress("cb730222000000000000000000000000000000000000")
-	addr6, _ := common.HexToAddress("cb110222220000000000000000000000000000000000")
+	addr4, _ := common.HexToAddress("796c7889000000000000000000000000000000000000")
+	addr5, _ := common.HexToAddress("796c7889000000000000000000000000000000000000")
+	addr6, _ := common.HexToAddress("796c7872220000000000000000000000000000000000")
 	// Create the corresponding receipts
 	receipts := Receipts{
 		&Receipt{

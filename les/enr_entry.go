@@ -17,9 +17,9 @@
 package les
 
 import (
-	"github.com/core-coin/go-core/v2/p2p/dnsdisc"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/p2p/dnsdisc"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // lesEntry is the "les" ENR entry. This is set for LES servers only.

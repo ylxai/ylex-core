@@ -27,7 +27,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // TestPack tests the general pack/unpack tests in packing_test.go

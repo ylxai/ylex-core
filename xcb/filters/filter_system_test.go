@@ -25,19 +25,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	c "github.com/core-coin/go-core/v2"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/bloombits"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/event"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rpc"
+	c "github.com/ylxai/ylex-core/v2"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/bloombits"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/event"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 type testBackend struct {
@@ -213,7 +213,7 @@ func TestBlockSubscription(t *testing.T) {
 // TestPendingTxFilter tests whether pending tx filters retrieve all pending transactions that are posted to the event mux.
 func TestPendingTxFilter(t *testing.T) {
 	t.Parallel()
-	addr, _ := common.HexToAddress("cb16b794f5ea0ba39494ce83a213fffba74279579268")
+	addr, _ := common.HexToAddress("796c7836f5ea0ba39494ce83a213fffba74279579268")
 	var (
 		db      = rawdb.NewMemoryDatabase()
 		backend = &testBackend{db: db}
@@ -365,10 +365,10 @@ func TestLogFilter(t *testing.T) {
 		backend = &testBackend{db: db}
 		api     = NewPublicFilterAPI(backend, false)
 
-		firstAddr, _      = common.HexToAddress("cb751111111111111111111111111111111111111111")
-		secondAddr, _     = common.HexToAddress("cb962222222222222222222222222222222222222222")
-		thirdAddress, _   = common.HexToAddress("cb203333333333333333333333333333333333333333")
-		notUsedAddress, _ = common.HexToAddress("cb499999999999999999999999999999999999999999")
+		firstAddr, _      = common.HexToAddress("796c7845111111111111111111111111111111111111")
+		secondAddr, _     = common.HexToAddress("796c7898222222222222222222222222222222222222")
+		thirdAddress, _   = common.HexToAddress("796c7854333333333333333333333333333333333333")
+		notUsedAddress, _ = common.HexToAddress("796c7881999999999999999999999999999999999999")
 		firstTopic        = common.HexToHash("0x1111111111111111111111111111111111111111111111111111111111111111")
 		secondTopic       = common.HexToHash("0x2222222222222222222222222222222222222222222222222222222222222222")
 		notUsedTopic      = common.HexToHash("0x9999999999999999999999999999999999999999999999999999999999999999")
@@ -479,10 +479,10 @@ func TestPendingLogsSubscription(t *testing.T) {
 		backend = &testBackend{db: db}
 		api     = NewPublicFilterAPI(backend, false)
 
-		firstAddr, _      = common.HexToAddress("cb751111111111111111111111111111111111111111")
-		secondAddr, _     = common.HexToAddress("cb962222222222222222222222222222222222222222")
-		thirdAddress, _   = common.HexToAddress("cb203333333333333333333333333333333333333333")
-		notUsedAddress, _ = common.HexToAddress("cb499999999999999999999999999999999999999999")
+		firstAddr, _      = common.HexToAddress("796c7845111111111111111111111111111111111111")
+		secondAddr, _     = common.HexToAddress("796c7898222222222222222222222222222222222222")
+		thirdAddress, _   = common.HexToAddress("796c7854333333333333333333333333333333333333")
+		notUsedAddress, _ = common.HexToAddress("796c7881999999999999999999999999999999999999")
 		firstTopic        = common.HexToHash("0x1111111111111111111111111111111111111111111111111111111111111111")
 		secondTopic       = common.HexToHash("0x2222222222222222222222222222222222222222222222222222222222222222")
 		thirdTopic        = common.HexToHash("0x3333333333333333333333333333333333333333333333333333333333333333")

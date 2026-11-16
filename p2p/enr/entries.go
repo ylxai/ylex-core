@@ -21,7 +21,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // Entry is implemented by known node record entry types.

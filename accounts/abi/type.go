@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // Type enumerator

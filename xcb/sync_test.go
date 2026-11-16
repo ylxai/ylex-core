@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/p2p"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
 )
 
 func TestFastSyncDisabling63(t *testing.T) { testFastSyncDisabling(t, 63) }

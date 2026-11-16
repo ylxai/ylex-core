@@ -26,8 +26,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/rpc"
 	"github.com/golang-jwt/jwt/v4"
 )
 

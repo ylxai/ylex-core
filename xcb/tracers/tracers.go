@@ -21,7 +21,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/core-coin/go-core/v2/xcb/tracers/internal/tracers"
+	"github.com/ylxai/ylex-core/v2/xcb/tracers/internal/tracers"
 )
 
 // all contains all the built in JavaScript tracers by name.

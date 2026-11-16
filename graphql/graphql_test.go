@@ -26,13 +26,13 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/miner"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/xcb"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/miner"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/xcb"
 )
 
 func TestBuildSchema(t *testing.T) {
@@ -139,7 +139,7 @@ func createNode(t *testing.T, gqlEnabled bool) *node.Node {
 }
 
 func createGQLService(t *testing.T, stack *node.Node, endpoint string) {
-	addr, err := common.HexToAddress("cb27de521e43741cf785cbad450d5649187b9612018f")
+	addr, err := common.HexToAddress("796c78241e43741cf785cbad450d5649187b9612018f")
 	if err != nil {
 		t.Error(err)
 	}

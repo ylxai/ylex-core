@@ -28,10 +28,10 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // Tests block header storage and retrieval operations.
@@ -275,11 +275,11 @@ func TestBlockReceiptStorage(t *testing.T) {
 	db := NewMemoryDatabase()
 
 	// Create a live block since we need metadata to reconstruct the receipt
-	addr1, err := common.HexToAddress("cb270000000000000000000000000000000000000001")
+	addr1, err := common.HexToAddress("796c7855000000000000000000000000000000000001")
 	if err != nil {
 		t.Fatal(err)
 	}
-	addr2, err := common.HexToAddress("cb970000000000000000000000000000000000000002")
+	addr2, err := common.HexToAddress("796c7821000000000000000000000000000000000002")
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -21,12 +21,12 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 // Prove constructs a merkle proof for key. The result contains all encoded nodes

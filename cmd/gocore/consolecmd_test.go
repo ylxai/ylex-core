@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 const (
@@ -48,7 +48,7 @@ func runMinimalGocore(t *testing.T, args ...string) *testgocore {
 // Tests that a node embedded within a console can be started up properly and
 // then terminated by closing the input stream.
 func TestConsoleWelcome(t *testing.T) {
-	coinbase := "cb348605cdbbdb6d264aa742e77020dcbc58fcdce182"
+	coinbase := "796c7861cdbbdb6d264aa742e77020dcbc58fcdce182"
 
 	// Start a gocore console, make sure it's cleaned up and terminate the console
 	gocore := runMinimalGocore(t, "--miner.corebase", coinbase, "console")
@@ -98,7 +98,7 @@ func TestAttachWelcome(t *testing.T) {
 	p := trulyRandInt(1024, 65533) // Yeah, sometimes this will fail, sorry :P
 	httpPort = strconv.Itoa(p)
 	wsPort = strconv.Itoa(p + 1)
-	gocore := runMinimalGocore(t, "--miner.corebase", "cb348605cdbbdb6d264aa742e77020dcbc58fcdce182",
+	gocore := runMinimalGocore(t, "--miner.corebase", "796c7861cdbbdb6d264aa742e77020dcbc58fcdce182",
 		"--ipcpath", ipc,
 		"--http", "--http.port", httpPort,
 		"--ws", "--ws.port", wsPort)

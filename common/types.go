@@ -28,7 +28,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
 )
 
 // Lengths of hashes and addresses in bytes.
@@ -39,7 +39,9 @@ const (
 	AddressLength = 22
 )
 
-var DefaultNetworkID = Mainnet // NetworkID which is using in addresses
+// DefaultNetworkID is the network id whose address prefix is used when
+// deriving and validating addresses. YLEX uses the "ylx" prefix.
+var DefaultNetworkID = YlexNetworkID
 
 var (
 	hashT    = reflect.TypeOf(Hash{})
@@ -279,9 +281,13 @@ func VerifyAddress(addr Address) error {
 	if isPrecompiledAddress(addr) || isDevAddress(addr) {
 		return nil
 	}
-	if !bytes.Equal(addr[:1], DefaultNetworkID.Bytes()) {
+	prefixLen := len(DefaultNetworkID.Bytes())
+	if prefixLen == 0 || len(addr) < prefixLen+1 {
 		return invalidPrefix
-	} else if Bytes2Hex(addr[1:2]) != CalculateChecksum(addr[2:], addr[:1]) {
+	}
+	if !bytes.Equal(addr[:prefixLen], DefaultNetworkID.Bytes()) {
+		return invalidPrefix
+	} else if Bytes2Hex(addr[prefixLen:prefixLen+1]) != CalculateChecksum(addr[prefixLen+1:], addr[:prefixLen]) {
 		return invalidChecksum
 	}
 	return nil
@@ -326,6 +332,67 @@ func IsHexAddress(s string) bool {
 // Bytes gets the string representation of the underlying address.
 func (a Address) Bytes() []byte {
 	return a[:]
+}
+
+// YlexGenesisCoinbase is the protocol address credited with the genesis
+// coinbase on YLEX.
+//
+// It is derived the same way every other address is: a network prefix, a
+// checksum and a payload. The payload is all zeroes, the conventional
+// "unspendable" marker.
+//
+// It is built in init() because it depends on networkIdPrefixes, and Go
+// initialises package level variables in source order.
+var YlexGenesisCoinbase Address
+
+func init() {
+	EnsureNetworkPrefixes()
+	YlexGenesisCoinbase = buildYlexAddress(make([]byte, AddressLength-len(networkIdPrefixes[Ylex])-1))
+}
+
+// EnsureNetworkPrefixes makes sure the network prefix table is populated.
+//
+// It is idempotent and safe to call from any package. It exists because a
+// package level variable in another package can be initialised before this
+// package's init function has run, and reading the table before then would
+// see an empty map.
+func EnsureNetworkPrefixes() {
+	if len(networkIdPrefixes) == 0 {
+		networkIdPrefixes = map[NetworkID][]byte{
+			Mainnet: {0xcb},
+			Devin:   {0xab},
+			Ylex:    {'y', 'l', 'x'},
+		}
+	}
+}
+
+// buildYlexAddress assembles an address for the Ylex network from a payload.
+func buildYlexAddress(payload []byte) Address {
+	prefix := networkIdPrefixes[Ylex]
+	raw := make([]byte, 0, AddressLength)
+	raw = append(raw, prefix...)
+	raw = append(raw, Hex2Bytes(CalculateChecksum(payload, prefix))...)
+	raw = append(raw, payload...)
+	return BytesToAddress(raw)
+}
+
+// TrimAddressPayload trims a hash to the number of bytes an address payload
+// holds for the current network.
+//
+// An address is prefix || checksum || payload. The prefix length depends on
+// the network: the upstream networks use a one byte prefix, while Ylex uses
+// the three ASCII bytes "ylx". The payload takes whatever is left of the 22
+// byte address.
+func TrimAddressPayload(hash []byte) []byte {
+	prefixLen := len(DefaultNetworkID.Bytes())
+	payloadLen := AddressLength - prefixLen - 1 // minus prefix and checksum
+	if payloadLen < 0 {
+		payloadLen = 0
+	}
+	if len(hash) > payloadLen {
+		return hash[len(hash)-payloadLen:]
+	}
+	return hash
 }
 
 // Hash converts an address to a hash by left-padding it with zeros.
@@ -447,25 +514,62 @@ func (a UnprefixedAddress) MarshalText() ([]byte, error) {
 type NetworkID uint64
 
 const (
-	Mainnet NetworkID = iota + 1
-	Devin             = iota + 2
+	Mainnet NetworkID = 1
+	Devin   NetworkID = 3
+	Ylex    NetworkID = 4
+)
+
+// The typed aliases below keep the constants usable as NetworkID values in
+// contexts where the untyped constant would be inferred as int.
+const (
+	YlexNetworkID NetworkID = Ylex
 )
 
 var networkIds = [...]string{
 	"cb",       // 1 - Mainnet
 	"wrong id", // 2 - wrong
 	"ab",       // 3 - Devin
+	"ylx",      // 4 - Ylex
+}
+
+// networkIdPrefixes holds the raw byte prefix for each network id. The
+// prefix is what makes an address recognisable at a glance and what keeps
+// addresses from one network from being valid on another.
+//
+// Ylex uses the three ASCII bytes "ylx" rather than a hex pair, because
+// the prefix is displayed verbatim in the address string. The upstream
+// networks use two hex characters, so their addresses stay 22 bytes with a
+// one byte prefix; Ylex therefore uses a three byte prefix and a 22 byte
+// address with a shorter payload. The checksum is computed over the prefix
+// and the payload exactly as it is for the other networks.
+var networkIdPrefixes = map[NetworkID][]byte{
+	Mainnet: {0xcb},
+	Devin:   {0xab},
+	Ylex:    {'y', 'l', 'x'},
 }
 
 func (network NetworkID) String() string {
 	if network > 3 {
-		return "ce" // everything else except mainnet and devin - private nets
+		return "ce" // everything else except mainnet, devin and ylex - private nets
 	}
 	return networkIds[network-1]
 }
 
+// Bytes returns the raw address prefix for this network id.
+//
+// Every network on this client shares the three byte "ylx" prefix: mainnet,
+// the test network and private networks all derive and validate addresses the
+// same way. Only the chain id differs between them, which is what keeps a
+// transaction from one network valid on another. Sharing the prefix means a
+// wallet, an explorer or a block explorer URL works unchanged on every
+// network the client can join, and it avoids the failure mode where a node
+// silently switches prefix depending on which network id it was started with.
+//
+// The networkIdPrefixes table is kept so the prefix can be looked up by name
+// in tests and documentation, but address derivation does not depend on the
+// running network id any more.
 func (network NetworkID) Bytes() []byte {
-	return Hex2Bytes(network.String())
+	return networkIdPrefixes[Ylex]
 }
 
 func (network NetworkID) Int64() int64 {

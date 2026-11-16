@@ -27,14 +27,14 @@ import (
 	"testing"
 	"time"
 
-	c "github.com/core-coin/go-core/v2"
-	"github.com/core-coin/go-core/v2/accounts/abi"
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
+	c "github.com/ylxai/ylex-core/v2"
+	"github.com/ylxai/ylex-core/v2/accounts/abi"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 func TestSimulatedBackend(t *testing.T) {
@@ -516,7 +516,7 @@ func TestSimulatedBackend_EstimateEnergyWithPrice(t *testing.T) {
 	sim := NewSimulatedBackend(core.GenesisAlloc{addr: {Balance: big.NewInt(params.Core*2 + 2e17)}}, 10000000)
 	defer sim.Close()
 
-	recipient, err := common.HexToAddress("cb76a631db606f1452ddc2432931d611f1d5b126f848")
+	recipient, err := common.HexToAddress("796c7828db606f1452ddc2432931d611f1d5b126f848")
 	if err != nil {
 		t.Error(err)
 	}

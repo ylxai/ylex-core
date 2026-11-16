@@ -20,8 +20,8 @@ import (
 	"context"
 	"net"
 
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/p2p/netutil"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/p2p/netutil"
 )
 
 // ServeListener accepts connections on l, serving JSON-RPC on them.

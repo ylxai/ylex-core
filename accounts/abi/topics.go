@@ -23,8 +23,8 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 // MakeTopics converts a filter query argument list into a filter topic set.

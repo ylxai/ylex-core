@@ -25,8 +25,8 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p/simulations/pipes"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p/simulations/pipes"
 )
 
 func TestProtocolHandshake(t *testing.T) {

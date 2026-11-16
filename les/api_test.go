@@ -30,19 +30,19 @@ import (
 
 	"github.com/mattn/go-colorable"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/les/flowcontrol"
-	"github.com/core-coin/go-core/v2/log"
-	"github.com/core-coin/go-core/v2/node"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/simulations"
-	"github.com/core-coin/go-core/v2/p2p/simulations/adapters"
-	"github.com/core-coin/go-core/v2/rpc"
-	"github.com/core-coin/go-core/v2/xcb"
-	"github.com/core-coin/go-core/v2/xcb/downloader"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/les/flowcontrol"
+	"github.com/ylxai/ylex-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/node"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/simulations"
+	"github.com/ylxai/ylex-core/v2/p2p/simulations/adapters"
+	"github.com/ylxai/ylex-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/xcb"
+	"github.com/ylxai/ylex-core/v2/xcb/downloader"
 )
 
 // Additional command line flags for the test binary.

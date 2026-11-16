@@ -13,8 +13,8 @@ import (
 	"io"
 	"math/big"
 
-	cloudflare "github.com/core-coin/go-core/v2/crypto/bn256/cloudflare"
-	google "github.com/core-coin/go-core/v2/crypto/bn256/google"
+	cloudflare "github.com/ylxai/ylex-core/v2/crypto/bn256/cloudflare"
+	google "github.com/ylxai/ylex-core/v2/crypto/bn256/google"
 )
 
 func getG1Points(input io.Reader) (*cloudflare.G1, *google.G1) {

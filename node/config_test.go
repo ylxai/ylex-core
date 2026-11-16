@@ -25,8 +25,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/p2p"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/p2p"
 )
 
 // Tests that datadirs can be successfully created, be them manually configured

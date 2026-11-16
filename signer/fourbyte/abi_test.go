@@ -22,8 +22,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/accounts/abi"
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/accounts/abi"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 func verify(t *testing.T, jsondata, calldata string, exp []interface{}) {
@@ -57,7 +57,7 @@ func TestNewUnpacker(t *testing.T) {
 		calldata string
 		exp      []interface{}
 	}
-	addr, err := common.HexToAddress("cb4900000133700000deadbeef000000000000000000")
+	addr, err := common.HexToAddress("796c78360133700000deadbeef000000000000000000")
 	if err != nil {
 		t.Error(err)
 	}

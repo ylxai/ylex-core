@@ -23,17 +23,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/accounts/abi/bind"
-	"github.com/core-coin/go-core/v2/accounts/abi/bind/backends"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind"
+	"github.com/ylxai/ylex-core/v2/accounts/abi/bind/backends"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/crypto"
 )
 
 var testKey, _ = crypto.UnmarshalPrivateKeyHex("c0b711eea422df26d5ffdcaae35fe0527cf647c5ce62d3efb5e09a0e14fc8afe57fac1a5daa330bc10bfa1d3db11e172a822dcfffb86a0b26d")
 
-var addr, _ = common.HexToAddress("cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba")
+var addr, _ = common.HexToAddress("796c78278daf54f2e568bb4237357b1cee1aa3cb7eba")
 
 var waitDeployedTests = map[string]struct {
 	code        string
@@ -107,7 +107,7 @@ func TestWaitDeployedCornerCases(t *testing.T) {
 	)
 	defer backend.Close()
 
-	addr, _ := common.HexToAddress("cb270000000000000000000000000000000000000001")
+	addr, _ := common.HexToAddress("796c7855000000000000000000000000000000000001")
 	// Create a transaction to an account.
 	code := "6060604052600a8060106000396000f360606040526008565b00"
 	tx := types.NewTransaction(0, addr, big.NewInt(0), 3000000, big.NewInt(1), common.FromHex(code))

@@ -25,10 +25,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/internal/testlog"
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/internal/testlog"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 // Tests whether remote HTTP servers are correctly notified of new work.

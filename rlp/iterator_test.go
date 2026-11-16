@@ -19,7 +19,7 @@ package rlp
 import (
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
 )
 
 // TestIterator tests some basic things about the ListIterator. A more

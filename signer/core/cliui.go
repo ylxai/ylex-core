@@ -24,11 +24,11 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/core-coin/go-core/v2/internal/xcbapi"
+	"github.com/ylxai/ylex-core/v2/internal/xcbapi"
 
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/console/prompt"
-	"github.com/core-coin/go-core/v2/log"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/console/prompt"
+	"github.com/ylxai/ylex-core/v2/log"
 )
 
 type CommandlineUI struct {

@@ -25,9 +25,9 @@ import (
 
 	"github.com/core-coin/uint256"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
 )
 
 type TwoOperandTestcase struct {
@@ -591,43 +591,43 @@ func TestCreate2Addreses(t *testing.T) {
 			origin:   "0x0000000000000000000000000000000000000000",
 			salt:     "0x0000000000000000000000000000000000000000",
 			code:     "0x00",
-			expected: "cb52a55032de3186cea55fdef3fdb0dbd45b18bba964",
+			expected: "796c789732de3186cea55fdef3fdb0dbd45b18bba964",
 		},
 		{
 			origin:   "0xdeadbeef00000000000000000000000000000000",
 			salt:     "0x0000000000000000000000000000000000000000",
 			code:     "0x00",
-			expected: "cb6480d15ddb300c9631bb03d106e8638a823701ecac",
+			expected: "796c78455ddb300c9631bb03d106e8638a823701ecac",
 		},
 		{
 			origin:   "0xdeadbeef00000000000000000000000000000000",
 			salt:     "0xfeed000000000000000000000000000000000000",
 			code:     "0x00",
-			expected: "cb875362c88b4f021806a12e94623c7a83e8c01473af",
+			expected: "796c7856c88b4f021806a12e94623c7a83e8c01473af",
 		},
 		{
 			origin:   "0x0000000000000000000000000000000000000000",
 			salt:     "0x0000000000000000000000000000000000000000",
 			code:     "0xdeadbeef",
-			expected: "cb40fce72bafe6e89f533630b9a876c1d56bfc0d7707",
+			expected: "796c78842bafe6e89f533630b9a876c1d56bfc0d7707",
 		},
 		{
 			origin:   "0x00000000000000000000000000000000deadbeef",
 			salt:     "0xcafebabe",
 			code:     "0xdeadbeef",
-			expected: "cb43d3c6aee116a1f8f82a0a4f2ea2a02059cafe6789",
+			expected: "796c7802aee116a1f8f82a0a4f2ea2a02059cafe6789",
 		},
 		{
 			origin:   "0x00000000000000000000000000000000deadbeef",
 			salt:     "0xcafebabe",
 			code:     "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
-			expected: "cb516997e86459f44af92ab7e927c54fe47fadcbbd6c",
+			expected: "796c7893e86459f44af92ab7e927c54fe47fadcbbd6c",
 		},
 		{
 			origin:   "0x0000000000000000000000000000000000000000",
 			salt:     "0x0000000000000000000000000000000000000000",
 			code:     "0x",
-			expected: "cb3680e5927ec9af1efc619ee6d4198e97c91ab72a96",
+			expected: "796c7848927ec9af1efc619ee6d4198e97c91ab72a96",
 		},
 	} {
 

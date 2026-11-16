@@ -22,16 +22,16 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/consensus/cryptore"
+	"github.com/ylxai/ylex-core/v2/consensus/cryptore"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/core"
-	"github.com/core-coin/go-core/v2/core/rawdb"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/core/vm"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/params"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/core"
+	"github.com/ylxai/ylex-core/v2/core/rawdb"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/vm"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/params"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 type testBackend struct {
@@ -69,7 +69,7 @@ func newTestBackend(t *testing.T) *testBackend {
 	db := rawdb.NewMemoryDatabase()
 	genesis, _ := gspec.Commit(db)
 
-	address, err := common.HexToAddress("cb4900000133700000deadbeef000000000000000000")
+	address, err := common.HexToAddress("796c78360133700000deadbeef000000000000000000")
 	if err != nil {
 		t.Error(err)
 	}

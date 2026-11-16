@@ -23,7 +23,7 @@ import (
 
 	"github.com/docker/docker/pkg/reexec"
 
-	"github.com/core-coin/go-core/v2/internal/cmdtest"
+	"github.com/ylxai/ylex-core/v2/internal/cmdtest"
 )
 
 type testXcbkey struct {

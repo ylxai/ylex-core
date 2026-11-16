@@ -28,7 +28,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/core-coin/go-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common"
 )
 
 // TestUnpack tests the general pack/unpack tests in packing_test.go
@@ -408,7 +408,7 @@ func TestMultiReturnWithStringArray(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	addr, err := common.HexToAddress("cb54ab1257528b3782fb40d7ed5f72e624b744dffb2f")
+	addr, err := common.HexToAddress("796c789357528b3782fb40d7ed5f72e624b744dffb2f")
 	if err != nil {
 		t.Error(err)
 	}

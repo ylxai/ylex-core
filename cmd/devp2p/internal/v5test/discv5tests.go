@@ -22,10 +22,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/core-coin/go-core/v2/internal/utesting"
-	"github.com/core-coin/go-core/v2/p2p/discover/v5wire"
-	"github.com/core-coin/go-core/v2/p2p/enode"
-	"github.com/core-coin/go-core/v2/p2p/netutil"
+	"github.com/ylxai/ylex-core/v2/internal/utesting"
+	"github.com/ylxai/ylex-core/v2/p2p/discover/v5wire"
+	"github.com/ylxai/ylex-core/v2/p2p/enode"
+	"github.com/ylxai/ylex-core/v2/p2p/netutil"
 )
 
 // Suite is the discv5 test suite.

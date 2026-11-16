@@ -4,12 +4,12 @@ import (
 	"context"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/core/state"
-	"github.com/core-coin/go-core/v2/core/types"
-	"github.com/core-coin/go-core/v2/internal/xcbapi"
-	"github.com/core-coin/go-core/v2/rpc"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/core/state"
+	"github.com/ylxai/ylex-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/internal/xcbapi"
+	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
 func TestListKVFunctionSelectors(t *testing.T) {
@@ -40,7 +40,7 @@ func TestListKVBasicFunctionality(t *testing.T) {
 	t.Logf("Testing ListKV basic functionality:")
 
 	// Test contract address
-	contractAddr, err := common.HexToAddress("cb19c7acc4c292d2943ba23c2eaa5d9c5a6652a8710c")
+	contractAddr, err := common.HexToAddress("796c7898c4c292d2943ba23c2eaa5d9c5a6652a8710c")
 	if err != nil {
 		t.Fatalf("Failed to parse address: %v", err)
 	}

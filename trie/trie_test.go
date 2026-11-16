@@ -33,13 +33,13 @@ import (
 	"github.com/davecgh/go-spew/spew"
 	"golang.org/x/crypto/sha3"
 
-	"github.com/core-coin/go-core/v2/xcbdb"
-	"github.com/core-coin/go-core/v2/xcbdb/leveldb"
-	"github.com/core-coin/go-core/v2/xcbdb/memorydb"
+	"github.com/ylxai/ylex-core/v2/xcbdb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/leveldb"
+	"github.com/ylxai/ylex-core/v2/xcbdb/memorydb"
 
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/rlp"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/rlp"
 )
 
 func init() {

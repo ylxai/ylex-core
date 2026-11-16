@@ -20,7 +20,7 @@ import (
 	"math"
 	"sync"
 
-	"github.com/core-coin/go-core/v2/common/mclock"
+	"github.com/ylxai/ylex-core/v2/common/mclock"
 )
 
 // ExpiredValue is a scalar value that is continuously expired (decreased

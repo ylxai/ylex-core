@@ -26,12 +26,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/core-coin/go-core/v2/accounts/keystore"
-	"github.com/core-coin/go-core/v2/common"
-	"github.com/core-coin/go-core/v2/common/hexutil"
-	"github.com/core-coin/go-core/v2/common/math"
-	"github.com/core-coin/go-core/v2/crypto"
-	"github.com/core-coin/go-core/v2/signer/core"
+	"github.com/ylxai/ylex-core/v2/accounts/keystore"
+	"github.com/ylxai/ylex-core/v2/common"
+	"github.com/ylxai/ylex-core/v2/common/hexutil"
+	"github.com/ylxai/ylex-core/v2/common/math"
+	"github.com/ylxai/ylex-core/v2/crypto"
+	"github.com/ylxai/ylex-core/v2/signer/core"
 )
 
 var typesStandard = core.Types{
@@ -134,17 +134,17 @@ var jsonTypedData = `
         "name": "Core Mail",
         "version": "1",
         "networkId": "1",
-        "verifyingContract": "cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba"
+        "verifyingContract": "796c78278daf54f2e568bb4237357b1cee1aa3cb7eba"
       },
       "message": {
         "from": {
           "name": "Cow",
 		  "test": 3,
-          "wallet": "cb76a631db606f1452ddc2432931d611f1d5b126f848"
+          "wallet": "796c7828db606f1452ddc2432931d611f1d5b126f848"
         },
         "to": {
           "name": "Bob",
-          "wallet": "cb27de521e43741cf785cbad450d5649187b9612018f"
+          "wallet": "796c78241e43741cf785cbad450d5649187b9612018f"
         },
         "contents": "Hello, Bob!"
       }
@@ -157,18 +157,18 @@ var domainStandard = core.TypedDataDomain{
 	"Core Mail",
 	"1",
 	math.NewHexOrDecimal256(1),
-	"cb375a538daf54f2e568bb4237357b1cee1aa3cb7eba",
+	"796c78278daf54f2e568bb4237357b1cee1aa3cb7eba",
 	"",
 }
 
 var messageStandard = map[string]interface{}{
 	"from": map[string]interface{}{
 		"name":   "Cow",
-		"wallet": "cb76a631db606f1452ddc2432931d611f1d5b126f848",
+		"wallet": "796c7828db606f1452ddc2432931d611f1d5b126f848",
 	},
 	"to": map[string]interface{}{
 		"name":   "Bob",
-		"wallet": "cb27de521e43741cf785cbad450d5649187b9612018f",
+		"wallet": "796c78241e43741cf785cbad450d5649187b9612018f",
 	},
 	"contents": "Hello, Bob!",
 }
@@ -436,35 +436,35 @@ var gnosisTypedData = `
 		]
 	},
 	"domain": {
-		"verifyingContract": "cb45f23d9ab6aefb2c22dfff511e29703435a3b50f50"
+		"verifyingContract": "796c78279ab6aefb2c22dfff511e29703435a3b50f50"
 	},
 	"primaryType": "SafeTx",
 	"message": {
-		"to": "cb65e49851f010cd7d81b5b4969f3b0e8325c415359d",
+		"to": "796c787251f010cd7d81b5b4969f3b0e8325c415359d",
 		"value": "20000000000000000",
 		"data": "0x",
 		"operation": 0,
 		"safeTxEnergy": 27845,
 		"baseEnergy": 0,
 		"energyPrice": "0",
-		"energyToken": "cb540000000000000000000000000000000000000000",
-		"refundReceiver": "cb540000000000000000000000000000000000000000",
+		"energyToken": "796c7889000000000000000000000000000000000000",
+		"refundReceiver": "796c7889000000000000000000000000000000000000",
 		"nonce": 3
 	}
 }`
 
 var gnosisTx = `
 {
-      "safe": "cb45f23d9ab6aefb2c22dfff511e29703435a3b50f50",
-      "to": "cb65e49851f010cd7d81b5b4969f3b0e8325c415359d",
+      "safe": "796c78279ab6aefb2c22dfff511e29703435a3b50f50",
+      "to": "796c787251f010cd7d81b5b4969f3b0e8325c415359d",
       "value": "20000000000000000",
       "data": null,
       "operation": 0,
-      "energyToken": "cb540000000000000000000000000000000000000000",
+      "energyToken": "796c7889000000000000000000000000000000000000",
       "safeTxEnergy": 27845,
       "baseEnergy": 0,
       "energyPrice": "0",
-      "refundReceiver": "cb540000000000000000000000000000000000000000",
+      "refundReceiver": "796c7889000000000000000000000000000000000000",
       "nonce": 3,
       "executionDate": null,
       "submissionDate": "2020-09-15T21:59:23.815748Z",

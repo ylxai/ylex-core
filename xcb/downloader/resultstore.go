@@ -21,7 +21,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/core-coin/go-core/v2/core/types"
+	"github.com/ylxai/ylex-core/v2/core/types"
 )
 
 // resultStore implements a structure for maintaining fetchResults, tracking their
