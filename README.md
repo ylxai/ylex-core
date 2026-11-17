@@ -33,7 +33,7 @@ Building `ylexd` requires Go 1.22 or later and a C/C++ compiler.
 ### Linux / macOS
 
 ```shell
-make gocore
+make ylexd
 ```
 
 or, to build the full suite of utilities:

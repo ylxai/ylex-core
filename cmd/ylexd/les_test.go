@@ -31,31 +31,31 @@ import (
 	"github.com/ylxai/ylex-core/v2/rpc"
 )
 
-type gocorerpc struct {
+type ylexdrpc struct {
 	name     string
 	rpc      *rpc.Client
-	gocore   *testgocore
+	ylexd   *testylexd
 	nodeInfo *p2p.NodeInfo
 }
 
-func (g *gocorerpc) killAndWait() {
-	g.gocore.Kill()
-	g.gocore.WaitExit()
+func (g *ylexdrpc) killAndWait() {
+	g.ylexd.Kill()
+	g.ylexd.WaitExit()
 }
 
-func (g *gocorerpc) callRPC(result interface{}, method string, args ...interface{}) {
+func (g *ylexdrpc) callRPC(result interface{}, method string, args ...interface{}) {
 	if err := g.rpc.Call(&result, method, args...); err != nil {
-		g.gocore.Fatalf("callRPC %v: %v", method, err)
+		g.ylexd.Fatalf("callRPC %v: %v", method, err)
 	}
 }
 
-func (g *gocorerpc) addPeer(peer *gocorerpc) {
-	g.gocore.Logf("%v.addPeer(%v)", g.name, peer.name)
+func (g *ylexdrpc) addPeer(peer *ylexdrpc) {
+	g.ylexd.Logf("%v.addPeer(%v)", g.name, peer.name)
 	enode := peer.getNodeInfo().Enode
 	peerCh := make(chan *p2p.PeerEvent)
 	sub, err := g.rpc.Subscribe(context.Background(), "admin", peerCh, "peerEvents")
 	if err != nil {
-		g.gocore.Fatalf("subscribe %v: %v", g.name, err)
+		g.ylexd.Fatalf("subscribe %v: %v", g.name, err)
 	}
 	defer sub.Unsubscribe()
 	g.callRPC(nil, "admin_addPeer", enode)
@@ -63,16 +63,16 @@ func (g *gocorerpc) addPeer(peer *gocorerpc) {
 	timeout := time.After(dur)
 	select {
 	case ev := <-peerCh:
-		g.gocore.Logf("%v received event: type=%v, peer=%v", g.name, ev.Type, ev.Peer)
+		g.ylexd.Logf("%v received event: type=%v, peer=%v", g.name, ev.Type, ev.Peer)
 	case err := <-sub.Err():
-		g.gocore.Fatalf("%v sub error: %v", g.name, err)
+		g.ylexd.Fatalf("%v sub error: %v", g.name, err)
 	case <-timeout:
-		g.gocore.Error("timeout adding peer after", dur)
+		g.ylexd.Error("timeout adding peer after", dur)
 	}
 }
 
 // Use this function instead of `g.nodeInfo` directly
-func (g *gocorerpc) getNodeInfo() *p2p.NodeInfo {
+func (g *ylexdrpc) getNodeInfo() *p2p.NodeInfo {
 	if g.nodeInfo != nil {
 		return g.nodeInfo
 	}
@@ -81,13 +81,13 @@ func (g *gocorerpc) getNodeInfo() *p2p.NodeInfo {
 	return g.nodeInfo
 }
 
-func (g *gocorerpc) waitSynced() {
+func (g *ylexdrpc) waitSynced() {
 	// Check if it's synced now
 	var result interface{}
 	g.callRPC(&result, "xcb_syncing")
 	syncing, ok := result.(bool)
 	if ok && !syncing {
-		g.gocore.Logf("%v already synced", g.name)
+		g.ylexd.Logf("%v already synced", g.name)
 		return
 	}
 
@@ -95,23 +95,23 @@ func (g *gocorerpc) waitSynced() {
 	ch := make(chan interface{})
 	sub, err := g.rpc.Subscribe(context.Background(), "xcb", ch, "syncing")
 	if err != nil {
-		g.gocore.Fatalf("%v syncing: %v", g.name, err)
+		g.ylexd.Fatalf("%v syncing: %v", g.name, err)
 	}
 	defer sub.Unsubscribe()
 	timeout := time.After(10 * time.Second)
 	select {
 	case ev := <-ch:
-		g.gocore.Log("'syncing' event", ev)
+		g.ylexd.Log("'syncing' event", ev)
 		syncing, ok := ev.(bool)
 		if ok && !syncing {
 			break
 		}
-		g.gocore.Log("Other 'syncing' event", ev)
+		g.ylexd.Log("Other 'syncing' event", ev)
 	case err := <-sub.Err():
-		g.gocore.Fatalf("%v notification: %v", g.name, err)
+		g.ylexd.Fatalf("%v notification: %v", g.name, err)
 		break
 	case <-timeout:
-		g.gocore.Fatalf("%v timeout syncing", g.name)
+		g.ylexd.Fatalf("%v timeout syncing", g.name)
 		break
 	}
 }
@@ -144,19 +144,19 @@ func ipcEndpoint(ipcPath, datadir string) string {
 // the pipe filename instead of folder.
 var nextIPC = uint32(0)
 
-func startGocoreWithIpc(t *testing.T, name string, args ...string) *gocorerpc {
-	ipcName := fmt.Sprintf("gocore-%d.ipc", atomic.AddUint32(&nextIPC, 1))
+func startGocoreWithIpc(t *testing.T, name string, args ...string) *ylexdrpc {
+	ipcName := fmt.Sprintf("ylexd-%d.ipc", atomic.AddUint32(&nextIPC, 1))
 	args = append([]string{"--networkid=42", "--port=0", "--ipcpath", ipcName}, args...)
 	t.Logf("Starting %v with rpc: %v", name, args)
 
-	g := &gocorerpc{
+	g := &ylexdrpc{
 		name:   name,
-		gocore: runGocore(t, args...),
+		ylexd: runGocore(t, args...),
 	}
 	// wait before we can attach to it. TODO: probe for it properly
 	time.Sleep(10 * time.Second)
 	var err error
-	ipcpath := ipcEndpoint(ipcName, g.gocore.Datadir)
+	ipcpath := ipcEndpoint(ipcName, g.ylexd.Datadir)
 	if g.rpc, err = rpc.Dial(ipcpath); err != nil {
 		t.Fatalf("%v rpc connect to %v: %v", name, ipcpath, err)
 	}
@@ -165,23 +165,23 @@ func startGocoreWithIpc(t *testing.T, name string, args ...string) *gocorerpc {
 
 func initGocore(t *testing.T) string {
 	args := []string{"--networkid=42", "init", "./testdata/clique.json"}
-	t.Logf("Initializing gocore: %v ", args)
+	t.Logf("Initializing ylexd: %v ", args)
 	g := runGocore(t, args...)
 	datadir := g.Datadir
 	g.WaitExit()
 	return datadir
 }
 
-func startLightServer(t *testing.T) *gocorerpc {
+func startLightServer(t *testing.T) *ylexdrpc {
 	datadir := initGocore(t)
-	t.Logf("Importing keys to gocore")
+	t.Logf("Importing keys to ylexd")
 	runGocore(t, "--datadir", datadir, "--networkid=42", "--password", "./testdata/password.txt", "account", "import", "./testdata/key.prv", "--lightkdf").WaitExit()
 	account := "ce4404ad003b70526a4a1ac8ba121f2f96d95b6e11e0" // 9c0c5806dc0b007ed080762cadde92b3e4fefb9034f0a0e3e279a1d4139e38fd20364df61bc0eb34104e01764ae028470a73a167c6e624d443
 	server := startGocoreWithIpc(t, "lightserver", "--networkid=42", "--allow-insecure-unlock", "--datadir", datadir, "--password", "./testdata/password.txt", "--unlock", account, "--mine", "--light.serve=100", "--light.maxpeers=1", "--nodiscover", "--nat=extip:127.0.0.1", "--verbosity=5")
 	return server
 }
 
-func startClient(t *testing.T, name string) *gocorerpc {
+func startClient(t *testing.T, name string) *ylexdrpc {
 	datadir := initGocore(t)
 	return startGocoreWithIpc(t, name, "--networkid=42", "--datadir", datadir, "--nodiscover", "--syncmode=light", "--nat=extip:127.0.0.1", "--verbosity=5")
 }
@@ -217,7 +217,7 @@ func TestPriorityClient(t *testing.T) {
 		t.Errorf("Expected: # of prio peers == 1, actual: %v", len(peers))
 	}
 
-	nodes := map[string]*gocorerpc{
+	nodes := map[string]*ylexdrpc{
 		lightServer.getNodeInfo().ID: lightServer,
 		freeCli.getNodeInfo().ID:     freeCli,
 		prioCli.getNodeInfo().ID:     prioCli,

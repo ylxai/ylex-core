@@ -24,7 +24,7 @@ import (
 )
 
 func TestMessageSignVerify(t *testing.T) {
-	tmpdir, err := ioutil.TempDir("", "xcbkey-test")
+	tmpdir, err := ioutil.TempDir("", "ylexkey-test")
 	if err != nil {
 		t.Fatal("Can't create temporary directory:", err)
 	}

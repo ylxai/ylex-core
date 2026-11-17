@@ -18,7 +18,7 @@ jobs:
         binary: [ylexd, bootnode, abigen, cvm, ylexkey, faucet, clef]
         include:
           - binary: ylexd
-            target: ./cmd/gocore
+            target: ./cmd/ylexd
           - binary: bootnode
             target: ./cmd/bootnode
           - binary: abigen
@@ -26,7 +26,7 @@ jobs:
           - binary: cvm
             target: ./cmd/cvm
           - binary: ylexkey
-            target: ./cmd/xcbkey
+            target: ./cmd/ylexkey
           - binary: faucet
             target: ./cmd/faucet
           - binary: clef
@@ -69,7 +69,7 @@ jobs:
 
       - name: Dump genesis and assert no premine
         run: |
-          go build -o ./build/ylexd ./cmd/gocore
+          go build -o ./build/ylexd ./cmd/ylexd
           ./build/ylexd dumpgenesis > /tmp/genesis.json
           python3 - <<'EOF'
           import json

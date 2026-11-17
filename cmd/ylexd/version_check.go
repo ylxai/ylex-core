@@ -31,7 +31,7 @@ import (
 	"github.com/ylxai/ylex-core/v2/log"
 )
 
-var gocorePubKeys []string = []string{
+var ylexdPubKeys []string = []string{
 	//minisign public key 138B1CA303E51687
 	"RWSHFuUDoxyLEzjszuWZI1xStS66QTyXFFZG18uDfO26CuCsbckX1e9J",
 	//minisign public key FD9813B2D2098484
@@ -71,7 +71,7 @@ func checkCurrent(url, current string) error {
 	if sig, err = fetch(fmt.Sprintf("%v.minisig", url)); err != nil {
 		return fmt.Errorf("could not retrieve signature: %w", err)
 	}
-	if err = verifySignature(gocorePubKeys, data, sig); err != nil {
+	if err = verifySignature(ylexdPubKeys, data, sig); err != nil {
 		return err
 	}
 	var vulns []vulnJson

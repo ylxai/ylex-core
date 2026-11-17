@@ -31,14 +31,14 @@ import (
 )
 
 func tmpdir(t *testing.T) string {
-	dir, err := ioutil.TempDir("", "gocore-test")
+	dir, err := ioutil.TempDir("", "ylexd-test")
 	if err != nil {
 		t.Fatal(err)
 	}
 	return dir
 }
 
-type testgocore struct {
+type testylexd struct {
 	*cmdtest.TestCmd
 
 	// template variables for expect
@@ -47,8 +47,8 @@ type testgocore struct {
 }
 
 func init() {
-	// Run the app if we've been exec'd as "gocore-test" in runGocore.
-	reexec.Register("gocore-test", func() {
+	// Run the app if we've been exec'd as "ylexd-test" in runGocore.
+	reexec.Register("ylexd-test", func() {
 		if err := app.Run(os.Args); err != nil {
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
@@ -65,10 +65,10 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 
-// spawns gocore with the given command line args. If the args don't set --datadir, the
+// spawns ylexd with the given command line args. If the args don't set --datadir, the
 // child g gets a temporary data directory.
-func runGocore(t *testing.T, args ...string) *testgocore {
-	tt := &testgocore{}
+func runGocore(t *testing.T, args ...string) *testylexd {
+	tt := &testylexd{}
 	tt.TestCmd = cmdtest.NewTestCmd(t, tt)
 	for i, arg := range args {
 		switch arg {
@@ -94,9 +94,9 @@ func runGocore(t *testing.T, args ...string) *testgocore {
 		}()
 	}
 
-	// Boot "gocore". This actually runs the test binary but the TestMain
+	// Boot "ylexd". This actually runs the test binary but the TestMain
 	// function will prevent any tests from running.
-	tt.Run("gocore-test", args...)
+	tt.Run("ylexd-test", args...)
 
 	return tt
 }

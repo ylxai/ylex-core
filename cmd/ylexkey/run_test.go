@@ -30,17 +30,17 @@ type testXcbkey struct {
 	*cmdtest.TestCmd
 }
 
-// spawns xcbkey with the given command line args.
+// spawns ylexkey with the given command line args.
 func runXcbkey(t *testing.T, args ...string) *testXcbkey {
 	tt := new(testXcbkey)
 	tt.TestCmd = cmdtest.NewTestCmd(t, tt)
-	tt.Run("xcbkey-test", args...)
+	tt.Run("ylexkey-test", args...)
 	return tt
 }
 
 func TestMain(m *testing.M) {
-	// Run the app if we've been exec'd as "xcbkey-test" in runXcbkey.
-	reexec.Register("xcbkey-test", func() {
+	// Run the app if we've been exec'd as "ylexkey-test" in runXcbkey.
+	reexec.Register("ylexkey-test", func() {
 		if err := app.Run(os.Args); err != nil {
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)

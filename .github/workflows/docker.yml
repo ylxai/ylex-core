@@ -1,4 +1,4 @@
-name: gocore docker
+name: ylexd docker
 on:
   push:
     tags:
@@ -27,8 +27,8 @@ jobs:
           docker buildx create --use
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
-            --tag ghcr.io/core-coin/go-core:${{ steps.version.outputs.tag }} \
-            --tag ghcr.io/core-coin/go-core:latest \
+            --tag ghcr.io/ylxai/ylex-core:${{ steps.version.outputs.tag }} \
+            --tag ghcr.io/ylxai/ylex-core:latest \
             --push .
       - name: Verify Image Digest (Optional)
-        run: docker buildx imagetools inspect ghcr.io/core-coin/go-core:latest
+        run: docker buildx imagetools inspect ghcr.io/ylxai/ylex-core:latest

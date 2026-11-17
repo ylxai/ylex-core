@@ -93,11 +93,11 @@ func TestCustomGenesis(t *testing.T) {
 		runGocore(t, "--datadir", datadir, "init", json).WaitExit()
 
 		// Query the custom genesis block
-		gocore := runGocore(t,
+		ylexd := runGocore(t,
 			"--datadir", datadir, "--maxpeers", "0", "--port", "0",
 			"--nodiscover", "--nat", "none", "--ipcdisable",
 			"--exec", tt.query, "console")
-		gocore.ExpectRegexp(tt.result)
-		gocore.ExpectExit()
+		ylexd.ExpectRegexp(tt.result)
+		ylexd.ExpectExit()
 	}
 }

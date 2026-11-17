@@ -386,7 +386,7 @@ var packUnpackTests = []packUnpackTest{
 	// Functions
 	{
 		def:      `[{"type": "function"}]`,
-		packed:   "cb27de521e43741cf785cbad450d5649187b9612018fd4fa231f000000000000",
+		packed:   "796c78241e43741cf785cbad450d5649187b9612018fd4fa231f000000000000",
 		unpacked: [26]byte{203, 39, 222, 82, 30, 67, 116, 28, 247, 133, 203, 173, 69, 13, 86, 73, 24, 123, 150, 18, 1, 143, 212, 250, 35, 31},
 	},
 	// Slice and Array

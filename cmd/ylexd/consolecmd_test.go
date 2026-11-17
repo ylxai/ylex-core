@@ -35,10 +35,10 @@ const (
 	httpAPIs = "net:1.0 rpc:1.0 sc:1.0 web3:1.0 xcb:1.0"
 )
 
-// spawns gocore with the given command line args, using a set of flags to minimise
+// spawns ylexd with the given command line args, using a set of flags to minimise
 // memory and disk IO. If the args don't set --datadir, the
 // child g gets a temporary data directory.
-func runMinimalGocore(t *testing.T, args ...string) *testgocore {
+func runMinimalGocore(t *testing.T, args ...string) *testylexd {
 	// --syncmode=full to avoid allocating fast sync bloom
 	allArgs := []string{"--syncmode=full", "--port", "0",
 		"--nat", "none", "--nodiscover", "--maxpeers", "0", "--cache", "64"}
@@ -50,21 +50,21 @@ func runMinimalGocore(t *testing.T, args ...string) *testgocore {
 func TestConsoleWelcome(t *testing.T) {
 	coinbase := "796c7861cdbbdb6d264aa742e77020dcbc58fcdce182"
 
-	// Start a gocore console, make sure it's cleaned up and terminate the console
-	gocore := runMinimalGocore(t, "--miner.corebase", coinbase, "console")
+	// Start a ylexd console, make sure it's cleaned up and terminate the console
+	ylexd := runMinimalGocore(t, "--miner.corebase", coinbase, "console")
 
 	// Gather all the infos the welcome message needs to contain
-	gocore.SetTemplateFunc("goos", func() string { return runtime.GOOS })
-	gocore.SetTemplateFunc("goarch", func() string { return runtime.GOARCH })
-	gocore.SetTemplateFunc("gover", runtime.Version)
-	gocore.SetTemplateFunc("gocorever", func() string { return params.VersionWithTag("", "", "") })
-	gocore.SetTemplateFunc("niltime", func() string {
+	ylexd.SetTemplateFunc("goos", func() string { return runtime.GOOS })
+	ylexd.SetTemplateFunc("goarch", func() string { return runtime.GOARCH })
+	ylexd.SetTemplateFunc("gover", runtime.Version)
+	ylexd.SetTemplateFunc("ylexdver", func() string { return params.VersionWithTag("", "", "") })
+	ylexd.SetTemplateFunc("niltime", func() string {
 		return time.Unix(1651833293, 0).Format("Mon Jan 02 2006 15:04:05 GMT-0700 (MST)")
 	})
-	gocore.SetTemplateFunc("apis", func() string { return ipcAPIs })
+	ylexd.SetTemplateFunc("apis", func() string { return ipcAPIs })
 
 	// Verify the actual welcome message to the required template
-	gocore.Expect(`
+	ylexd.Expect(`
 Welcome to the Gocore JavaScript console!
 
 instance: Gocore/{{goos}}-{{goarch}}/{{gover}}
@@ -76,7 +76,7 @@ at block: 0 ({{niltime}})
 To exit, press ctrl-d
 > {{.InputLine "exit"}}
 `)
-	gocore.ExpectExit()
+	ylexd.ExpectExit()
 }
 
 // Tests that a console can be attached to a running node via various means.
@@ -88,38 +88,38 @@ func TestAttachWelcome(t *testing.T) {
 	)
 	// Configure the instance for IPC attachment
 	if runtime.GOOS == "windows" {
-		ipc = `\\.\pipe\gocore` + strconv.Itoa(trulyRandInt(100000, 999999))
+		ipc = `\\.\pipe\ylexd` + strconv.Itoa(trulyRandInt(100000, 999999))
 	} else {
 		ws := tmpdir(t)
 		defer os.RemoveAll(ws)
-		ipc = filepath.Join(ws, "gocore.ipc")
+		ipc = filepath.Join(ws, "ylexd.ipc")
 	}
 	// And HTTP + WS attachment
 	p := trulyRandInt(1024, 65533) // Yeah, sometimes this will fail, sorry :P
 	httpPort = strconv.Itoa(p)
 	wsPort = strconv.Itoa(p + 1)
-	gocore := runMinimalGocore(t, "--miner.corebase", "796c7861cdbbdb6d264aa742e77020dcbc58fcdce182",
+	ylexd := runMinimalGocore(t, "--miner.corebase", "796c7861cdbbdb6d264aa742e77020dcbc58fcdce182",
 		"--ipcpath", ipc,
 		"--http", "--http.port", httpPort,
 		"--ws", "--ws.port", wsPort)
 	t.Run("ipc", func(t *testing.T) {
 		waitForEndpoint(t, ipc, 120*time.Second)
-		testAttachWelcome(t, gocore, "ipc:"+ipc, ipcAPIs)
+		testAttachWelcome(t, ylexd, "ipc:"+ipc, ipcAPIs)
 	})
 	t.Run("http", func(t *testing.T) {
 		endpoint := "http://127.0.0.1:" + httpPort
 		waitForEndpoint(t, endpoint, 120*time.Second)
-		testAttachWelcome(t, gocore, endpoint, httpAPIs)
+		testAttachWelcome(t, ylexd, endpoint, httpAPIs)
 	})
 	t.Run("ws", func(t *testing.T) {
 		endpoint := "ws://127.0.0.1:" + wsPort
 		waitForEndpoint(t, endpoint, 120*time.Second)
-		testAttachWelcome(t, gocore, endpoint, httpAPIs)
+		testAttachWelcome(t, ylexd, endpoint, httpAPIs)
 	})
 }
 
-func testAttachWelcome(t *testing.T, gocore *testgocore, endpoint, apis string) {
-	// Attach to a running gocore note and terminate immediately
+func testAttachWelcome(t *testing.T, ylexd *testylexd, endpoint, apis string) {
+	// Attach to a running ylexd note and terminate immediately
 	attach := runGocore(t, "attach", endpoint)
 	defer attach.ExpectExit()
 	attach.CloseStdin()
@@ -128,13 +128,13 @@ func testAttachWelcome(t *testing.T, gocore *testgocore, endpoint, apis string) 
 	attach.SetTemplateFunc("goos", func() string { return runtime.GOOS })
 	attach.SetTemplateFunc("goarch", func() string { return runtime.GOARCH })
 	attach.SetTemplateFunc("gover", runtime.Version)
-	attach.SetTemplateFunc("gocorever", func() string { return params.VersionWithTag("", "", "") })
-	attach.SetTemplateFunc("corebase", func() string { return gocore.Corebase })
+	attach.SetTemplateFunc("ylexdver", func() string { return params.VersionWithTag("", "", "") })
+	attach.SetTemplateFunc("corebase", func() string { return ylexd.Corebase })
 	attach.SetTemplateFunc("niltime", func() string {
 		return time.Unix(1651833293, 0).Format("Mon Jan 02 2006 15:04:05 GMT-0700 (MST)")
 	})
 	attach.SetTemplateFunc("ipc", func() bool { return strings.HasPrefix(endpoint, "ipc") })
-	attach.SetTemplateFunc("datadir", func() string { return gocore.Datadir })
+	attach.SetTemplateFunc("datadir", func() string { return ylexd.Datadir })
 	attach.SetTemplateFunc("apis", func() string { return apis })
 
 	// Verify the actual welcome message to the required template

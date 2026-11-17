@@ -232,7 +232,7 @@ func makeExtraData(extra []byte) []byte {
 	if len(extra) == 0 {
 		// create default extradata
 		extra, _ = rlp.EncodeToBytes([]interface{}{
-			"gocore",
+			"ylexd",
 			runtime.Version(),
 			runtime.GOOS,
 		})

@@ -59,7 +59,7 @@ func TestMatching(t *testing.T) {
 				t.Fatal(err)
 			}
 			if vuln.Name == "Denial of service due to Go CVE-2020-28362" {
-				// this one is not tied to gocore-versions
+				// this one is not tied to ylexd-versions
 				continue
 			}
 			if vulnIntro <= current && vulnFixed > current {

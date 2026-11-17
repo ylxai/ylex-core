@@ -78,7 +78,7 @@ Print a short summary of all accounts`,
 					utils.NetworkIdFlag,
 				},
 				Description: `
-    gocore account new
+    ylexd account new
 
 Creates a new account and prints the address.
 
@@ -104,7 +104,7 @@ password to file or expose in any other way.
 					utils.NetworkIdFlag,
 				},
 				Description: `
-    gocore account update <address>
+    ylexd account update <address>
 
 Update an existing account.
 
@@ -116,7 +116,7 @@ format to the newest format or change the password for an account.
 
 For non-interactive use the password can be specified with the --password flag:
 
-    gocore account update [options] <address>
+    ylexd account update [options] <address>
 
 Since only one password can be given, only format update can be performed,
 changing your password is only possible interactively.
@@ -135,7 +135,7 @@ changing your password is only possible interactively.
 				},
 				ArgsUsage: "<keyFile>",
 				Description: `
-    gocore account import <keyfile>
+    ylexd account import <keyfile>
 
 Imports an unencrypted private key from <keyfile> and creates a new account.
 Prints the address.
@@ -148,7 +148,7 @@ You must remember this password to unlock your account in the future.
 
 For non-interactive use the password can be specified with the -password flag:
 
-    gocore account import [options] <keyfile>
+    ylexd account import [options] <keyfile>
 
 Note:
 As you can directly copy your encrypted accounts to another core instance,
@@ -229,7 +229,7 @@ func ambiguousAddrRecovery(ks *keystore.KeyStore, err *keystore.AmbiguousAddrErr
 
 // accountCreate creates a new account into the keystore defined by the CLI flags.
 func accountCreate(ctx *cli.Context) error {
-	cfg := gocoreConfig{Node: defaultNodeConfig()}
+	cfg := ylexdConfig{Node: defaultNodeConfig()}
 	// Load config file.
 	if file := ctx.GlobalString(configFileFlag.Name); file != "" {
 		if err := loadConfig(file, &cfg); err != nil {

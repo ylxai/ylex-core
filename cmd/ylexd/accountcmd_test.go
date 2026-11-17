@@ -45,33 +45,33 @@ func tmpDatadirWithKeystore(t *testing.T) string {
 }
 
 func TestAccountListEmpty(t *testing.T) {
-	gocore := runGocore(t, "account", "list")
-	gocore.ExpectExit()
+	ylexd := runGocore(t, "account", "list")
+	ylexd.ExpectExit()
 }
 
 func TestAccountList(t *testing.T) {
 	datadir := tmpDatadirWithKeystore(t)
-	gocore := runGocore(t, "account", "list", "--datadir", datadir)
-	defer gocore.ExpectExit()
+	ylexd := runGocore(t, "account", "list", "--datadir", datadir)
+	defer ylexd.ExpectExit()
 	if runtime.GOOS == "windows" {
-		gocore.Expect(`
-Account #0: {cb27de521e43741cf785cbad450d5649187b9612018f} keystore://{{.Datadir}}\keystore\UTC--2020-07-20T17-37-08.515483762Z--cb27de521e43741cf785cbad450d5649187b9612018f
-Account #1: {cb74db416ff2f9c53dabaf34f81142db30350ea7b144} keystore://{{.Datadir}}\keystore\aaa
-Account #2: {cb65e49851f010cd7d81b5b4969f3b0e8325c415359d} keystore://{{.Datadir}}\keystore\zzz
+		ylexd.Expect(`
+Account #0: {796c78241e43741cf785cbad450d5649187b9612018f} keystore://{{.Datadir}}\keystore\UTC--2020-07-20T17-37-08.515483762Z--796c78241e43741cf785cbad450d5649187b9612018f
+Account #1: {796c78636ff2f9c53dabaf34f81142db30350ea7b144} keystore://{{.Datadir}}\keystore\aaa
+Account #2: {796c787251f010cd7d81b5b4969f3b0e8325c415359d} keystore://{{.Datadir}}\keystore\zzz
 `)
 	} else {
-		gocore.Expect(`
-Account #0: {cb27de521e43741cf785cbad450d5649187b9612018f} keystore://{{.Datadir}}/keystore/UTC--2020-07-20T17-37-08.515483762Z--cb27de521e43741cf785cbad450d5649187b9612018f
-Account #1: {cb74db416ff2f9c53dabaf34f81142db30350ea7b144} keystore://{{.Datadir}}/keystore/aaa
-Account #2: {cb65e49851f010cd7d81b5b4969f3b0e8325c415359d} keystore://{{.Datadir}}/keystore/zzz
+		ylexd.Expect(`
+Account #0: {796c78241e43741cf785cbad450d5649187b9612018f} keystore://{{.Datadir}}/keystore/UTC--2020-07-20T17-37-08.515483762Z--796c78241e43741cf785cbad450d5649187b9612018f
+Account #1: {796c78636ff2f9c53dabaf34f81142db30350ea7b144} keystore://{{.Datadir}}/keystore/aaa
+Account #2: {796c787251f010cd7d81b5b4969f3b0e8325c415359d} keystore://{{.Datadir}}/keystore/zzz
 `)
 	}
 }
 
 func TestAccountNew(t *testing.T) {
-	gocore := runGocore(t, "account", "new", "--lightkdf")
-	defer gocore.ExpectExit()
-	gocore.Expect(`
+	ylexd := runGocore(t, "account", "new", "--lightkdf")
+	defer ylexd.ExpectExit()
+	ylexd.Expect(`
 Your new account is locked with a password. Please give a password. Do not forget this password.
 !! Unsupported terminal, password will be echoed.
 Password: {{.InputLine "foobar"}}
@@ -79,7 +79,7 @@ Repeat password: {{.InputLine "foobar"}}
 
 Your new key was generated
 `)
-	gocore.ExpectRegexp(`
+	ylexd.ExpectRegexp(`
 Public address of the key:   [0-9a-fA-F]{44}
 Path of the secret key file: .*UTC--.+--[0-9a-f]{44}
 
@@ -121,15 +121,15 @@ func importAccountWithExpect(t *testing.T, key string, expected string) {
 	if err := ioutil.WriteFile(passwordFile, []byte("foobar"), 0600); err != nil {
 		t.Error(err)
 	}
-	gocore := runGocore(t, "account", "import", keyfile, "-password", passwordFile)
-	defer gocore.ExpectExit()
-	gocore.Expect(expected)
+	ylexd := runGocore(t, "account", "import", keyfile, "-password", passwordFile)
+	defer ylexd.ExpectExit()
+	ylexd.Expect(expected)
 }
 
 func TestAccountNewBadRepeat(t *testing.T) {
-	gocore := runGocore(t, "account", "new", "--lightkdf")
-	defer gocore.ExpectExit()
-	gocore.Expect(`
+	ylexd := runGocore(t, "account", "new", "--lightkdf")
+	defer ylexd.ExpectExit()
+	ylexd.Expect(`
 Your new account is locked with a password. Please give a password. Do not forget this password.
 !! Unsupported terminal, password will be echoed.
 Password: {{.InputLine "something"}}
@@ -140,12 +140,12 @@ Fatal: Passwords do not match
 
 func TestAccountUpdate(t *testing.T) {
 	datadir := tmpDatadirWithKeystore(t)
-	gocore := runGocore(t, "account", "update",
+	ylexd := runGocore(t, "account", "update",
 		"--datadir", datadir, "--lightkdf",
 		"796c78636ff2f9c53dabaf34f81142db30350ea7b144")
-	defer gocore.ExpectExit()
-	gocore.Expect(`
-Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
+	defer ylexd.ExpectExit()
+	ylexd.Expect(`
+Unlocking account 796c78636ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
 !! Unsupported terminal, password will be echoed.
 Password: {{.InputLine "foobar"}}
 Please give a new password. Do not forget this password.
@@ -155,115 +155,115 @@ Repeat password: {{.InputLine "foobar"}}
 }
 
 func TestUnlockFlag(t *testing.T) {
-	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
+	ylexd := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
 		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "js", "testdata/empty.js")
-	gocore.Expect(`
-Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
+	ylexd.Expect(`
+Unlocking account 796c78636ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
 !! Unsupported terminal, password will be echoed.
 Password: {{.InputLine "foobar"}}
 `)
-	gocore.ExpectExit()
+	ylexd.ExpectExit()
 
 	wantMessages := []string{
 		"Unlocked account",
-		"=cb74db416ff2f9c53dabaf34f81142db30350ea7b144",
+		"=796c78636ff2f9c53dabaf34f81142db30350ea7b144",
 	}
 	for _, m := range wantMessages {
-		if !strings.Contains(gocore.StderrText(), m) {
+		if !strings.Contains(ylexd.StderrText(), m) {
 			t.Errorf("stderr text does not contain %q", m)
 		}
 	}
 }
 
 func TestUnlockFlagWrongPassword(t *testing.T) {
-	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
+	ylexd := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
 		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "js", "testdata/empty.js")
 
-	defer gocore.ExpectExit()
-	gocore.Expect(`
-Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
+	defer ylexd.ExpectExit()
+	ylexd.Expect(`
+Unlocking account 796c78636ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
 !! Unsupported terminal, password will be echoed.
 Password: {{.InputLine "wrong1"}}
-Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 2/3
+Unlocking account 796c78636ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 2/3
 Password: {{.InputLine "wrong2"}}
-Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 3/3
+Unlocking account 796c78636ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 3/3
 Password: {{.InputLine "wrong3"}}
-Fatal: Failed to unlock account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 (could not decrypt key with given password)
+Fatal: Failed to unlock account 796c78636ff2f9c53dabaf34f81142db30350ea7b144 (could not decrypt key with given password)
 `)
 }
 
 // https://github.com/ylxai/ylex-core/v2/issues/1785
 func TestUnlockFlagMultiIndex(t *testing.T) {
-	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
+	ylexd := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
 		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--unlock", "0,2", "js", "testdata/empty.js")
 
-	gocore.Expect(`
+	ylexd.Expect(`
 Unlocking account 0 | Attempt 1/3
 !! Unsupported terminal, password will be echoed.
 Password: {{.InputLine "foobar"}}
 Unlocking account 2 | Attempt 1/3
 Password: {{.InputLine "foobar"}}
 `)
-	gocore.ExpectExit()
+	ylexd.ExpectExit()
 
 	wantMessages := []string{
 		"Unlocked account",
-		"=cb27de521e43741cf785cbad450d5649187b9612018f",
-		"=cb65e49851f010cd7d81b5b4969f3b0e8325c415359d",
+		"=796c78241e43741cf785cbad450d5649187b9612018f",
+		"=796c787251f010cd7d81b5b4969f3b0e8325c415359d",
 	}
 	for _, m := range wantMessages {
-		if !strings.Contains(gocore.StderrText(), m) {
+		if !strings.Contains(ylexd.StderrText(), m) {
 			t.Errorf("stderr text does not contain %q", m)
 		}
 	}
 }
 
 func TestUnlockFlagPasswordFile(t *testing.T) {
-	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
+	ylexd := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
 		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--password", "testdata/passwords.txt", "--unlock", "0,2", "js", "testdata/empty.js")
 
-	gocore.ExpectExit()
+	ylexd.ExpectExit()
 
 	wantMessages := []string{
 		"Unlocked account",
-		"=cb27de521e43741cf785cbad450d5649187b9612018f",
-		"=cb65e49851f010cd7d81b5b4969f3b0e8325c415359d",
+		"=796c78241e43741cf785cbad450d5649187b9612018f",
+		"=796c787251f010cd7d81b5b4969f3b0e8325c415359d",
 	}
 	for _, m := range wantMessages {
-		if !strings.Contains(gocore.StderrText(), m) {
+		if !strings.Contains(ylexd.StderrText(), m) {
 			t.Errorf("stderr text does not contain %q", m)
 		}
 	}
 }
 
 func TestUnlockFlagPasswordFileWrongPassword(t *testing.T) {
-	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
+	ylexd := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
 		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--password",
 		"testdata/wrong-passwords.txt", "--unlock", "0,2")
-	defer gocore.ExpectExit()
-	gocore.Expect(`
+	defer ylexd.ExpectExit()
+	ylexd.Expect(`
 Fatal: Failed to unlock account 0 (could not decrypt key with given password)
 `)
 }
 
 func TestUnlockFlagAmbiguous(t *testing.T) {
 	store := filepath.Join("..", "..", "accounts", "keystore", "testdata", "dupes")
-	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
+	ylexd := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
 		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--keystore",
 		store, "--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144",
 		"js", "testdata/empty.js")
-	defer gocore.ExpectExit()
+	defer ylexd.ExpectExit()
 
 	// Helper for the expect template, returns absolute keystore path.
-	gocore.SetTemplateFunc("keypath", func(file string) string {
+	ylexd.SetTemplateFunc("keypath", func(file string) string {
 		abs, _ := filepath.Abs(filepath.Join(store, file))
 		return abs
 	})
-	gocore.Expect(`
-Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
+	ylexd.Expect(`
+Unlocking account 796c78636ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
 !! Unsupported terminal, password will be echoed.
 Password: {{.InputLine "foobar"}}
-Multiple key files exist for address cb74db416ff2f9c53dabaf34f81142db30350ea7b144:
+Multiple key files exist for address 796c78636ff2f9c53dabaf34f81142db30350ea7b144:
    keystore://{{keypath "1"}}
    keystore://{{keypath "2"}}
 Testing your password against all of them...
@@ -271,14 +271,14 @@ Your password unlocked keystore://{{keypath "1"}}
 In order to avoid this warning, you need to remove the following duplicate key files:
    keystore://{{keypath "2"}}
 `)
-	gocore.ExpectExit()
+	ylexd.ExpectExit()
 
 	wantMessages := []string{
 		"Unlocked account",
-		"=cb74db416ff2f9c53dabaf34f81142db30350ea7b144",
+		"=796c78636ff2f9c53dabaf34f81142db30350ea7b144",
 	}
 	for _, m := range wantMessages {
-		if !strings.Contains(gocore.StderrText(), m) {
+		if !strings.Contains(ylexd.StderrText(), m) {
 			t.Errorf("stderr text does not contain %q", m)
 		}
 	}
@@ -286,26 +286,26 @@ In order to avoid this warning, you need to remove the following duplicate key f
 
 func TestUnlockFlagAmbiguousWrongPassword(t *testing.T) {
 	store := filepath.Join("..", "..", "accounts", "keystore", "testdata", "dupes")
-	gocore := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
+	ylexd := runMinimalGocore(t, "--port", "0", "--ipcdisable", "--datadir", tmpDatadirWithKeystore(t),
 		"--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144", "--keystore",
 		store, "--unlock", "796c78636ff2f9c53dabaf34f81142db30350ea7b144")
 
-	defer gocore.ExpectExit()
+	defer ylexd.ExpectExit()
 
 	// Helper for the expect template, returns absolute keystore path.
-	gocore.SetTemplateFunc("keypath", func(file string) string {
+	ylexd.SetTemplateFunc("keypath", func(file string) string {
 		abs, _ := filepath.Abs(filepath.Join(store, file))
 		return abs
 	})
-	gocore.Expect(`
-Unlocking account cb74db416ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
+	ylexd.Expect(`
+Unlocking account 796c78636ff2f9c53dabaf34f81142db30350ea7b144 | Attempt 1/3
 !! Unsupported terminal, password will be echoed.
 Password: {{.InputLine "wrong"}}
-Multiple key files exist for address cb74db416ff2f9c53dabaf34f81142db30350ea7b144:
+Multiple key files exist for address 796c78636ff2f9c53dabaf34f81142db30350ea7b144:
    keystore://{{keypath "1"}}
    keystore://{{keypath "2"}}
 Testing your password against all of them...
 Fatal: None of the listed files could be unlocked.
 `)
-	gocore.ExpectExit()
+	ylexd.ExpectExit()
 }

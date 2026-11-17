@@ -2,20 +2,20 @@
 # with Go source code. If you know what GOPATH is then you probably
 # don't need to bother with make.
 
-.PHONY: gocore android ios gocore-cross cvm all test clean
-.PHONY: gocore-linux gocore-linux-386 gocore-linux-amd64 gocore-linux-mips64 gocore-linux-mips64le
-.PHONY: gocore-linux-arm gocore-linux-arm-5 gocore-linux-arm-6 gocore-linux-arm-7 gocore-linux-arm64
-.PHONY: gocore-darwin gocore-darwin-386 gocore-darwin-amd64
-.PHONY: gocore-windows gocore-windows-386 gocore-windows-amd64
+.PHONY: ylexd android ios ylexd-cross cvm all test clean
+.PHONY: ylexd-linux ylexd-linux-386 ylexd-linux-amd64 ylexd-linux-mips64 ylexd-linux-mips64le
+.PHONY: ylexd-linux-arm ylexd-linux-arm-5 ylexd-linux-arm-6 ylexd-linux-arm-7 ylexd-linux-arm64
+.PHONY: ylexd-darwin ylexd-darwin-386 ylexd-darwin-amd64
+.PHONY: ylexd-windows ylexd-windows-386 ylexd-windows-amd64
 
 GOBIN = ./build/bin
 GO ?= latest
 GORUN = env GO111MODULE=on go run
 
-gocore:
-	$(GORUN) build/ci.go install ./cmd/gocore
+ylexd:
+	$(GORUN) build/ci.go install ./cmd/ylexd
 	@echo "Done building."
-	@echo "Run \"$(GOBIN)/gocore\" to launch gocore."
+	@echo "Run \"$(GOBIN)/ylexd\" to launch ylexd."
 
 all:
 	$(GORUN) build/ci.go install
@@ -23,12 +23,12 @@ all:
 android:
 	$(GORUN) build/ci.go aar --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/gocore.aar\" to use the library."
+	@echo "Import \"$(GOBIN)/ylex.aar\" to use the library."
 
 ios:
 	$(GORUN) build/ci.go xcode --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/Gocore.framework\" to use the library."
+	@echo "Import \"$(GOBIN)/Ylex.framework\" to use the library."
 
 test: all
 	$(GORUN) build/ci.go test

@@ -1,12 +1,12 @@
-xcbkey
+ylexkey
 ======
 
-xcbkey is a simple command-line tool for working with Core keyfiles.
+ylexkey is a simple command-line tool for working with Core keyfiles.
 
 
 # Usage
 
-### `xcbkey generate`
+### `ylexkey generate`
 
 Generate a new keyfile.
 If you want to use an existing private key to use in the keyfile, it can be 
@@ -14,28 +14,28 @@ specified by setting `--privatekey` with the location of the file containing the
 private key.
 
 
-### `xcbkey inspect <keyfile>`
+### `ylexkey inspect <keyfile>`
 
 Print various information about the keyfile.
 Private key information can be printed by using the `--private` flag;
 make sure to use this feature with great caution!
 
 
-### `xcbkey signmessage <keyfile> <message/file>`
+### `ylexkey signmessage <keyfile> <message/file>`
 
 Sign the message with a keyfile.
 It is possible to refer to a file containing the message.
 To sign a message contained in a file, use the `--msgfile` flag.
 
 
-### `xcbkey verifymessage <address> <signature> <message/file>`
+### `ylexkey verifymessage <address> <signature> <message/file>`
 
 Verify the signature of the message.
 It is possible to refer to a file containing the message.
 To sign a message contained in a file, use the --msgfile flag.
 
 
-### `xcbkey changepassword <keyfile>`
+### `ylexkey changepassword <keyfile>`
 
 Change the password of a keyfile.
 use the `--newpasswordfile` to point to the new password file.

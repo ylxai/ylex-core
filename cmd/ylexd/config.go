@@ -72,13 +72,13 @@ type xcbstatsConfig struct {
 	URL string `toml:",omitempty"`
 }
 
-type gocoreConfig struct {
+type ylexdConfig struct {
 	Xcb      xcb.Config
 	Node     node.Config
 	Xcbstats xcbstatsConfig
 }
 
-func loadConfig(file string, cfg *gocoreConfig) error {
+func loadConfig(file string, cfg *ylexdConfig) error {
 	f, err := os.Open(file)
 	if err != nil {
 		return err
@@ -99,14 +99,14 @@ func defaultNodeConfig() node.Config {
 	cfg.Version = params.VersionWithTag(gitTag, gitCommit, gitDate)
 	cfg.HTTPModules = append(cfg.HTTPModules, "xcb")
 	cfg.WSModules = append(cfg.WSModules, "xcb")
-	cfg.IPCPath = "gocore.ipc"
+	cfg.IPCPath = "ylexd.ipc"
 	return cfg
 }
 
-// makeConfigNode loads gocore configuration and creates a blank node instance.
-func makeConfigNode(ctx *cli.Context) (*node.Node, gocoreConfig) {
+// makeConfigNode loads ylexd configuration and creates a blank node instance.
+func makeConfigNode(ctx *cli.Context) (*node.Node, ylexdConfig) {
 	// Load defaults.
-	cfg := gocoreConfig{
+	cfg := ylexdConfig{
 		Xcb:  xcb.DefaultConfig,
 		Node: defaultNodeConfig(),
 	}
@@ -136,7 +136,7 @@ func makeConfigNode(ctx *cli.Context) (*node.Node, gocoreConfig) {
 	return stack, cfg
 }
 
-// makeFullNode loads gocore configuration and creates the Core backend.
+// makeFullNode loads ylexd configuration and creates the Core backend.
 func makeFullNode(ctx *cli.Context) (*node.Node, xcbapi.Backend) {
 	stack, cfg := makeConfigNode(ctx)
 

@@ -55,19 +55,19 @@ import (
 )
 
 var (
-	// Files that end up in the gocore*.zip archive.
-	gocoreArchiveFiles = []string{
+	// Files that end up in the ylexd*.zip archive.
+	ylexdArchiveFiles = []string{
 		"COPYING",
-		executablePath("gocore"),
+		executablePath("ylexd"),
 	}
 
-	// Files that end up in the gocore-alltools*.zip archive.
+	// Files that end up in the ylexd-alltools*.zip archive.
 	allToolsArchiveFiles = []string{
 		"COPYING",
 		executablePath("abigen"),
 		executablePath("bootnode"),
 		executablePath("cvm"),
-		executablePath("gocore"),
+		executablePath("ylexd"),
 		executablePath("rlpdump"),
 		executablePath("clef"),
 	}
@@ -368,7 +368,7 @@ func downloadGo(goarch, goos, cachedir string) string {
 	if err != nil {
 		log.Fatal(err)
 	}
-	godir := filepath.Join(ucache, fmt.Sprintf("gocore-go-%s-%s-%s", dlgoVersion, goos, goarch))
+	godir := filepath.Join(ucache, fmt.Sprintf("ylex-go-%s-%s-%s", dlgoVersion, goos, goarch))
 	if err := build.ExtractArchive(dst, godir); err != nil {
 		log.Fatal(err)
 	}
@@ -429,7 +429,7 @@ func xgoTool(args []string) *exec.Cmd {
 
 func doPurge(cmdline []string) {
 	var (
-		store = flag.String("store", "", `Destination from where to purge archives (usually "gocorestore/builds")`)
+		store = flag.String("store", "", `Destination from where to purge archives (usually "ylexstore/builds")`)
 		limit = flag.Int("days", 30, `Age threshold above which to delete unstable archives`)
 	)
 	flag.CommandLine.Parse(cmdline)

@@ -1,4 +1,4 @@
-name: go-core build
+name: ylex build
 on: push
 jobs:
   build:
@@ -38,14 +38,14 @@ jobs:
         uname -m
         export GOOS=${{ matrix.config.os }}
         export GOARCH=${{ matrix.config.arch }}
-        make gocore
+        make ylexd
         make test
-    - name: Upload Gocore
+    - name: Upload Ylexd
       if: startsWith(github.ref, 'refs/tags/v')
       uses: actions/upload-artifact@v4
       with:
-        name: gocore-${{ matrix.config.path }}
-        path: ./build/bin/gocore*
+        name: ylexd-${{ matrix.config.path }}
+        path: ./build/bin/ylexd*
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -66,7 +66,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.version.outputs.tag }}
-        release_name: ${{ steps.version.outputs.tag }} gocore release
+        release_name: ${{ steps.version.outputs.tag }} ylexd release
         draft: false
         prerelease: true
 
@@ -84,31 +84,31 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Artifact Gocore
+    - name: Artifact Ylexd
       uses: actions/download-artifact@v4
       with:
-        name: gocore-${{ matrix.platform.path}}
-        path: ./gocore-${{ matrix.platform.path }}
-    - name: Upload Gocore release assets
+        name: ylexd-${{ matrix.platform.path}}
+        path: ./ylexd-${{ matrix.platform.path }}
+    - name: Upload Ylexd release assets
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.release.outputs.upload_url }}
-        asset_path: ./gocore-${{ matrix.platform.path }}/gocore${{matrix.platform.file_ext}}
-        asset_name: gocore-${{ matrix.platform.path }}${{matrix.platform.file_ext}}
+        asset_path: ./ylexd-${{ matrix.platform.path }}/ylexd${{matrix.platform.file_ext}}
+        asset_name: ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}
         asset_content_type: application/octet-stream
-    - name: Generate gocore checksums
-      working-directory: ./gocore-${{ matrix.platform.path }}
+    - name: Generate ylexd checksums
+      working-directory: ./ylexd-${{ matrix.platform.path }}
       run: |
-        mv ./gocore${{matrix.platform.file_ext}} ./gocore-${{ matrix.platform.path }}${{matrix.platform.file_ext}}
-        sha256sum gocore-${{ matrix.platform.path }}${{matrix.platform.file_ext}} >gocore-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
-    - name: Upload Gocore release assets checksums (Linux and Mac)
+        mv ./ylexd${{matrix.platform.file_ext}} ./ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}
+        sha256sum ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}} >ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
+    - name: Upload Ylexd release assets checksums (Linux and Mac)
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.release.outputs.upload_url }}
-        asset_path: ./gocore-${{ matrix.platform.path }}/gocore-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
-        asset_name: gocore-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
+        asset_path: ./ylexd-${{ matrix.platform.path }}/ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
+        asset_name: ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
         asset_content_type: text/plain
