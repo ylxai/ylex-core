@@ -47,3 +47,10 @@ profile.cov
 /dashboard/assets/package-lock.json
 
 **/yarn-error.log
+
+# Build artifacts
+/ylexd
+/gocore
+/faucet
+/xcbkey
+/ylexkey
