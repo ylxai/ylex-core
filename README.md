@@ -75,6 +75,8 @@ ylexd --mine --miner.threads 4 --miner.corebase ylxyouraddress
 
 On a modern CPU the network targets roughly one block every ten seconds.
 
+Mining is covered in [MINING.md](MINING.md).
+
 ## Addresses
 
 YLEX addresses are 22 bytes, laid out as:

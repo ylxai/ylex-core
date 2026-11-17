@@ -1,114 +1,70 @@
-name: ylex build
-on: push
+name: ylex release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   build:
-    runs-on: ${{ matrix.config.platform }}
+    name: Build ${{ matrix.path }}
+    runs-on: ${{ matrix.platform }}
     strategy:
+      fail-fast: false
       matrix:
-        config:
-          - {platform: windows-latest,   os: windows, arch: amd64, path: windows-x86_64}
-          - {platform: macos-latest,     os: darwin,  arch: arm64, path: darwin-arm64}
-          - {platform: ubuntu-latest,    os: linux,   arch: amd64, path: linux-x86_64}
-          - {platform: ubuntu-24.04-arm, os: linux,   arch: arm64, path: linux-arm64}
+        include:
+          - { platform: ubuntu-latest,    os: linux,  arch: amd64, path: linux-x86_64, ext: "" }
+          - { platform: ubuntu-24.04-arm, os: linux,  arch: arm64, path: linux-arm64,  ext: "" }
+          - { platform: macos-latest,     os: darwin, arch: arm64, path: darwin-arm64, ext: "" }
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Setup Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: 1.23
-    - name: Setup MSYS
-      if: ${{ matrix.config.platform == 'windows-latest' }}
-      uses: msys2/setup-msys2@v2
-      with:
-        msystem: mingw64
-        update: true
-        install: >
-          git
-          base-devel
-          autoconf-wrapper
-          autoconf
-          automake
-          libtool
-          mingw-w64-x86_64-toolchain
-          mingw-w64-x86_64-go
-    - name: Build & Test
-      shell: bash
-      run: |
-        uname -m
-        export GOOS=${{ matrix.config.os }}
-        export GOARCH=${{ matrix.config.arch }}
-        make ylexd
-        make test
-    - name: Upload Ylexd
-      if: startsWith(github.ref, 'refs/tags/v')
-      uses: actions/upload-artifact@v4
-      with:
-        name: ylexd-${{ matrix.config.path }}
-        path: ./build/bin/ylexd*
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache: true
+
+      - name: Build ylexd
+        run: |
+          go build -o build/bin/ylexd${{ matrix.ext }} ./cmd/ylexd
+          ls -la build/bin
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ylexd-${{ matrix.path }}
+          path: build/bin/ylexd${{ matrix.ext }}
+          if-no-files-found: error
 
   release:
-    if: startsWith(github.ref, 'refs/tags/v')
+    name: Publish release assets
     needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
-    outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Version
-      id: version
-      run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
-    - name: Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.version.outputs.tag }}
-        release_name: ${{ steps.version.outputs.tag }} ylexd release
-        draft: false
-        prerelease: true
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: false
 
-  artifacts:
-    needs: release
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [
-          {path: linux-x86_64, file_ext: ""},
-          {path: windows-x86_64, file_ext: ".exe"},
-          {path: linux-arm64, file_ext: ""},
-          {path: darwin-arm64, file_ext: ""},
-        ]
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Artifact Ylexd
-      uses: actions/download-artifact@v4
-      with:
-        name: ylexd-${{ matrix.platform.path}}
-        path: ./ylexd-${{ matrix.platform.path }}
-    - name: Upload Ylexd release assets
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ needs.release.outputs.upload_url }}
-        asset_path: ./ylexd-${{ matrix.platform.path }}/ylexd${{matrix.platform.file_ext}}
-        asset_name: ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}
-        asset_content_type: application/octet-stream
-    - name: Generate ylexd checksums
-      working-directory: ./ylexd-${{ matrix.platform.path }}
-      run: |
-        mv ./ylexd${{matrix.platform.file_ext}} ./ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}
-        sha256sum ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}} >ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
-    - name: Upload Ylexd release assets checksums (Linux and Mac)
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ needs.release.outputs.upload_url }}
-        asset_path: ./ylexd-${{ matrix.platform.path }}/ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
-        asset_name: ylexd-${{ matrix.platform.path }}${{matrix.platform.file_ext}}.checksum
-        asset_content_type: text/plain
+      - name: Package release assets
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          for dir in dist/*/; do
+            name=$(basename "$dir")
+            bin=$(ls "$dir" | head -1)
+            cp "$dir/$bin" "out/$name-$bin"
+          done
+          cd out
+          sha256sum * > checksums.txt
+          ls -la
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: out/*
+          prerelease: true
+          generate_release_notes: true
