@@ -17,8 +17,8 @@ data.
 - [x] Verified end to end on the test network: blocks mined, split paid
       exactly 7 : 2 : 1
 - [x] `ylx` address prefix and rebranded documentation
-- [ ] Rename remaining binaries (`gocore` → `ylexd`, `xcbkey` → `ylexkey`)
-- [ ] Remove the inherited dead genesis allocation and let the test build
+- [x] Rename remaining binaries (`gocore` → `ylexd`, `xcbkey` → `ylexkey`)
+- [x] Remove the inherited dead genesis allocation and let the test build
       suite pass cleanly
 
 ## Phase 1 — Public test network
@@ -27,7 +27,8 @@ data.
 - [ ] Faucet for test YLX
 - [ ] Block explorer (Blockscout or a lightweight indexer)
 - [ ] Live difficulty and orphan-rate dashboard
-- [ ] Miner documentation: solo mining, pool mining, hardware expectations
+- [x] Miner documentation: solo mining, pool mining, hardware expectations
+      ([MINING.md](MINING.md))
 
 ## Phase 2 — Mainnet launch
 
