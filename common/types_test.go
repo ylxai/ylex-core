@@ -91,8 +91,8 @@ func TestHashJsonValidation(t *testing.T) {
 }
 
 func TestAddressUnmarshalJSON(t *testing.T) {
-	firstValue, _ := new(big.Int).SetString("76119257383693214163347625799180543036016898731827897", 10)
-	secondValue, _ := new(big.Int).SetString("76029076697074162734871399364090302227946215290884425", 10)
+	firstValue, _ := new(big.Int).SetString("45430004477481788556470739123796482913866184655790777", 10)
+	secondValue, _ := new(big.Int).SetString("45430003455093574467731762260114304459459938797146441", 10)
 	var tests = []struct {
 		Input     string
 		ShouldErr bool
@@ -105,7 +105,7 @@ func TestAddressUnmarshalJSON(t *testing.T) {
 		{`"41e8cf4629acb360350399b6cff367a97cf36e62b9"`, true, nil},   // without prefix
 		{`"e8cf4629acb360350399b6cff367a97cf36e62b9"`, true, nil},     // without prefix and checksum
 		{`"796c78426db8bfe52ab1199deeacbc4c1ffa0686d149"`, false, secondValue},
-		{`"0xcb35348d6db8bfe52ab1199deeacbc4c1ffa0686d149"`, false, secondValue},
+		{`"0x796c78426db8bfe52ab1199deeacbc4c1ffa0686d149"`, false, secondValue},
 		{`"796c78704629acb360350399b6cff367a97cf36e62b9"`, false, firstValue},
 	}
 	for i, test := range tests {
@@ -239,8 +239,8 @@ func TestAddress_Scan(t *testing.T) {
 		{
 			name: "working scan",
 			args: args{src: []byte{
-				0xcb, 0x01,
-				0xb2, 0x6f, 0x2b, 0x34, 0x2a, 0xab, 0x24, 0xbc, 0xf6, 0x3e,
+				0x79, 0x6c, 0x78, 0x57,
+				0x2b, 0x34, 0x2a, 0xab, 0x24, 0xbc, 0xf6, 0x3e,
 				0xa2, 0x18, 0xc6, 0xa9, 0x27, 0x4d, 0x30, 0xab, 0x9a, 0x15,
 			}},
 			wantErr: false,
@@ -282,8 +282,8 @@ func TestAddress_Scan(t *testing.T) {
 
 func TestAddress_Value(t *testing.T) {
 	b := []byte{
-		0xcb, 0x01,
-		0xb2, 0x6f, 0x2b, 0x34, 0x2a, 0xab, 0x24, 0xbc, 0xf6, 0x3e,
+		0x79, 0x6c, 0x78, 0x57,
+		0x2b, 0x34, 0x2a, 0xab, 0x24, 0xbc, 0xf6, 0x3e,
 		0xa2, 0x18, 0xc6, 0xa9, 0x27, 0x4d, 0x30, 0xab, 0x9a, 0x15,
 	}
 	var usedA Address
@@ -317,8 +317,8 @@ func TestAddress_Value(t *testing.T) {
 
 func TestAddress_Format(t *testing.T) {
 	b := []byte{
-		0xcb, 0x01,
-		0xb2, 0x6f, 0x2b, 0x34, 0x2a, 0xab, 0x24, 0xbc, 0xf6, 0x3e,
+		0x79, 0x6c, 0x78, 0x57,
+		0x2b, 0x34, 0x2a, 0xab, 0x24, 0xbc, 0xf6, 0x3e,
 		0xa2, 0x18, 0xc6, 0xa9, 0x27, 0x4d, 0x30, 0xab, 0x9a, 0x15,
 	}
 	var addr Address
@@ -332,7 +332,7 @@ func TestAddress_Format(t *testing.T) {
 		{
 			name: "println",
 			out:  fmt.Sprintln(addr),
-			want: "cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15\n",
+			want: "796c78572b342aab24bcf63ea218c6a9274d30ab9a15\n",
 		},
 		{
 			name: "print",
@@ -377,13 +377,13 @@ func TestAddress_Format(t *testing.T) {
 		{
 			name: "printf-d",
 			out:  fmt.Sprintf("%d", addr),
-			want: "[203 1 178 111 43 52 42 171 36 188 246 62 162 24 198 169 39 77 48 171 154 21]",
+			want: "[121 108 120 87 43 52 42 171 36 188 246 62 162 24 198 169 39 77 48 171 154 21]",
 		},
 		// Invalid format char.
 		{
 			name: "printf-t",
 			out:  fmt.Sprintf("%t", addr),
-			want: "%!t(address=cb01b26f2b342aab24bcf63ea218c6a9274d30ab9a15)",
+			want: "%!t(address=796c78572b342aab24bcf63ea218c6a9274d30ab9a15)",
 		},
 	}
 	for _, tt := range tests {

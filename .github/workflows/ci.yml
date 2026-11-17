@@ -15,18 +15,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        binary: [ylexd, pode, evm, bootnode, abigen]
+        binary: [ylexd, bootnode, abigen, cvm, ylexkey, faucet, clef]
         include:
           - binary: ylexd
             target: ./cmd/gocore
-          - binary: pode
-            target: ./cmd/pode
-          - binary: evm
-            target: ./cmd/evm
           - binary: bootnode
             target: ./cmd/bootnode
           - binary: abigen
             target: ./cmd/abigen
+          - binary: cvm
+            target: ./cmd/cvm
+          - binary: ylexkey
+            target: ./cmd/xcbkey
+          - binary: faucet
+            target: ./cmd/faucet
+          - binary: clef
+            target: ./cmd/clef
     steps:
       - uses: actions/checkout@v4
 
